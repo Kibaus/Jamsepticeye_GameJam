@@ -1,7 +1,8 @@
 # Jamsepticeye_GameJam
 
-Game Overview
+# Game Overview
 A Godot game project for the Jamsepticeye Game Jam Event!
+
 _Godot Version 4.5 Stable used for this game project_
 
 Game Concept (High Concept)
