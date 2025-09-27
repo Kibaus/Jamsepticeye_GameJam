@@ -29,9 +29,9 @@ EVEMT                 | Button (Input)
 
 
 # Team Members
-- Kay -> (Insert Portfolio Link - If Desired)
-- Lavendar_Bunnies -> (Insert Portfolio Link - If Desired)
-- SavestateCorrupted -> (Insert Portfolio Link - If Desired)
-- SleepyKenni -> (Insert Portfolio Link - If Desired)
-- Wolfman80 -> (Insert Portfolio Link - If Desired)
-- Visha -> (Insert Portfolio Link - If Desired)
+- Kay | Project Manager / Artist -> (Insert Portfolio Link - If Desired)
+- SavestateCorrupted | Audio Designer -> (Insert Portfolio Link - If Desired)
+- SleepyKenni | Artist -> (Insert Portfolio Link - If Desired)
+- Thocra | Programmer -> (Insert Portfolio Link - If Desired)
+- Visha | Programmer -> (Insert Portfolio Link - If Desired)
+- Wolfman80 | Level Designer -> (Insert Portfolio Link - If Desired)
