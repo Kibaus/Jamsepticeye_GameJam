@@ -29,9 +29,9 @@ EVEMT                 | Button (Input)
 
 
 # Team Members
-- Kay | Project Manager / Artist -> (Insert Portfolio Link - If Desired)
+- Kay | Project Manager / Artist -> [https://kibaus.itch.io/]
+- Insamnohty | Programmer -> [https://insamnohty.itch.io/]
 - SavestateCorrupted | Audio Designer -> (Insert Portfolio Link - If Desired)
 - SleepyKenni | Artist -> (Insert Portfolio Link - If Desired)
-- Insamnohty | Programmer -> (https://insamnohty.itch.io/)
 - Visha | Programmer -> (Insert Portfolio Link - If Desired)
 - Wolfman80 | Level Designer -> (Insert Portfolio Link - If Desired)
