@@ -41,12 +41,16 @@ func switch_ui(id : UI):
 	match id:
 		UI.main: 
 			$ui_main.show()
-			get_tree().paused = true
+			get_tree().paused = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		UI.pause: 
 			$ui_pause.show()
 			get_tree().paused = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		UI.options: 
 			$ui_options.show()
 		UI.ingame: 
 			$ui_ingame.show()
 			get_tree().paused = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			

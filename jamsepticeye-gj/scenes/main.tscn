@@ -1,63 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://cixf3wvefct1u"]
+[gd_scene load_steps=4 format=3 uid="uid://cixf3wvefct1u"]
 
-[ext_resource type="Script" uid="uid://ct2pb3ccvpyit" path="res://scripts/ui_manager.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bgawkti3xmrss" path="res://scripts/setup.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://c676rw6y8mnym" path="res://scripts/spin_thing.gd" id="1_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dfma1x4vpjig2" path="res://scenes/ui_main.tscn" id="3_tefeu"]
-[ext_resource type="PackedScene" uid="uid://dsmv4yrsau6xy" path="res://scenes/ui_pause.tscn" id="4_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://bf5knpqguv2r1" path="res://scenes/ui_options.tscn" id="5_tipki"]
-[ext_resource type="PackedScene" uid="uid://s7ma42yxvhwv" path="res://scenes/ui_ingame.tscn" id="6_85g3d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
 
-[sub_resource type="Theme" id="Theme_0wfyh"]
-default_font_size = 22
+[node name="Main" type="Node"]
 
-[node name="main" type="Node"]
+[node name="Setup" type="Node" parent="."]
+script = ExtResource("1_0wfyh")
 
-[node name="Game" type="Node" parent="."]
-
-[node name="CamPivot" type="Marker3D" parent="Game"]
+[node name="CamPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9723699, 0.23344538, 0, -0.23344538, 0.9723699, 0, 0.882406, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Game/CamPivot"]
+[node name="Camera3D" type="Camera3D" parent="CamPivot"]
 
-[node name="test" type="Node" parent="Game"]
+[node name="test" type="Node" parent="."]
 
-[node name="spin_thing" type="MeshInstance3D" parent="Game/test"]
+[node name="spin_thing" type="MeshInstance3D" parent="test"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -3.4914098)
 mesh = SubResource("BoxMesh_tbgi4")
-skeleton = NodePath("../..")
+skeleton = NodePath("")
 script = ExtResource("1_tbgi4")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Game/test"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="test"]
 transform = Transform3D(0.72478545, -0.21204698, 0.655532, -0.68897474, -0.22306854, 0.6896046, 0, -0.9514603, -0.30777183, 0, 0, 0)
-
-[node name="UIManager" type="Control" parent="."]
-unique_name_in_owner = true
-process_mode = 3
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_0wfyh")
-script = ExtResource("1_o5qli")
-
-[node name="ui_main" parent="UIManager" instance=ExtResource("3_tefeu")]
-visible = false
-layout_mode = 1
-
-[node name="ui_pause" parent="UIManager" instance=ExtResource("4_o6xl0")]
-visible = false
-layout_mode = 1
-
-[node name="ui_options" parent="UIManager" instance=ExtResource("5_tipki")]
-visible = false
-layout_mode = 1
-
-[node name="ui_ingame" parent="UIManager" instance=ExtResource("6_85g3d")]
-visible = false
-layout_mode = 0

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dibbitpgdr7gr"]
+
+[ext_resource type="PackedScene" uid="uid://bi1fcsxwupdxd" path="res://scenes/components/player.tscn" id="1_uwrxv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yqjtg"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnu2h"]
+
+[node name="Game" type="Node"]
+
+[node name="CamPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9723699, 0.23344538, 0, -0.23344538, 0.9723699, 0, 0.882406, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CamPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.969872, 0.24361502, 0, -0.24361502, 0.969872, 0, 0.87795, 4.2545786)
+
+[node name="TestEnvironment" type="Node" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestEnvironment/StaticBody3D"]
+mesh = SubResource("BoxMesh_yqjtg")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestEnvironment/StaticBody3D"]
+shape = SubResource("BoxShape3D_lnu2h")
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]

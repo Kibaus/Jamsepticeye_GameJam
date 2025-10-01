@@ -1,0 +1,85 @@
+extends CharacterBody3D
+
+@export var speed = 160
+@export var fall_acceleration = 75
+
+@export var jump_enable : bool = false
+@export var jump_impulse = 20
+
+var target_velocity = Vector3.ZERO
+
+#mouse input
+@export_range(1, 100, 1) var mouse_sensitivity: int = 50
+@export var max_pitch : float = 89
+@export var min_pitch : float = -89
+
+func _ready() -> void:
+	$MeshInstance3D.hide()
+	Input.set_use_accumulated_input(false)
+
+func _input(event) -> void:
+	if event is InputEventMouseMotion:
+		aim_look(event)
+
+func _physics_process(delta: float) -> void:
+	_update_movement(delta)
+
+func _update_movement(delta):
+	var direction = Vector3.ZERO
+	
+	if Input.is_action_pressed("move_forward"):
+		direction.z -= 1
+	if Input.is_action_pressed("move_back"):
+		direction.z += 1
+	if Input.is_action_pressed("move_left"):
+		direction.x -= 1
+	if Input.is_action_pressed("move_right"):
+		direction.x += 1
+	
+	if direction != Vector3.ZERO:
+		direction = direction.normalized()
+
+	target_velocity.x = direction.x * speed * delta
+	target_velocity.z = direction.z * speed * delta
+	
+	if is_on_floor() == false:
+		target_velocity.y = target_velocity.y -(fall_acceleration * delta)
+	
+	if is_on_floor() and Input.is_action_just_pressed("jump") and jump_enable:
+		target_velocity.y = jump_impulse
+	
+	velocity = target_velocity.rotated(Vector3.UP,rotation.y)
+	move_and_slide()
+
+#Handles aim look with the mouse.
+func aim_look(event: InputEventMouseMotion)-> void:
+	var viewport_transform: Transform2D = get_tree().root.get_final_transform()
+	var motion: Vector2 = event.xformed_by(viewport_transform).relative
+	var degrees_per_unit: float = 0.001
+	
+	motion *= mouse_sensitivity
+	motion *= degrees_per_unit
+	
+	add_yaw(motion.x)
+	add_pitch(motion.y)
+	clamp_pitch()
+
+func add_yaw(amount)->void:
+	if is_zero_approx(amount):
+		return
+	
+	rotate_object_local(Vector3.DOWN, deg_to_rad(amount))
+	orthonormalize()
+
+func add_pitch(amount)->void:
+	if is_zero_approx(amount):
+		return
+	
+	%CamPivot.rotate_object_local(Vector3.LEFT, deg_to_rad(amount))
+	%CamPivot.orthonormalize()
+
+func clamp_pitch()->void:
+	if %CamPivot.rotation.x > deg_to_rad(min_pitch) and %CamPivot.rotation.x < deg_to_rad(max_pitch):
+		return
+	%CamPivot.rotation.x = clamp(%CamPivot.rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
+	%CamPivot.orthonormalize()

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dej2888vlmdd8"]
+
+[ext_resource type="Script" uid="uid://ct2pb3ccvpyit" path="res://scripts/ui_manager.gd" id="1_ixhu3"]
+[ext_resource type="PackedScene" uid="uid://dfma1x4vpjig2" path="res://scenes/components/ui_main.tscn" id="2_gl862"]
+[ext_resource type="PackedScene" uid="uid://dsmv4yrsau6xy" path="res://scenes/components/ui_pause.tscn" id="3_hst8a"]
+[ext_resource type="PackedScene" uid="uid://bf5knpqguv2r1" path="res://scenes/components/ui_options.tscn" id="4_tanoa"]
+[ext_resource type="PackedScene" uid="uid://s7ma42yxvhwv" path="res://scenes/components/ui_ingame.tscn" id="5_jo33p"]
+
+[sub_resource type="Theme" id="Theme_0wfyh"]
+default_font_size = 22
+
+[node name="UIManager" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_0wfyh")
+script = ExtResource("1_ixhu3")
+
+[node name="ui_main" parent="." instance=ExtResource("2_gl862")]
+visible = false
+layout_mode = 1
+
+[node name="ui_pause" parent="." instance=ExtResource("3_hst8a")]
+visible = false
+layout_mode = 1
+
+[node name="ui_options" parent="." instance=ExtResource("4_tanoa")]
+visible = false
+layout_mode = 1
+
+[node name="ui_ingame" parent="." instance=ExtResource("5_jo33p")]
+visible = false
+layout_mode = 0
