@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf5knpqguv2r1"]
+
+[ext_resource type="Script" uid="uid://qgofm7mi18qv" path="res://scripts/ui_options.gd" id="1_2oiub"]
+
+[node name="ui_options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2oiub")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 24.0
+offset_right = 20.0
+offset_bottom = 55.000015
+grow_horizontal = 2
+text = "OPTIONS"
+
+[node name="MenuButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_right = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MenuButtons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Option"
+
+[node name="TextEdit" type="TextEdit" parent="MenuButtons/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+
+[node name="return" type="Button" parent="MenuButtons"]
+layout_mode = 2
+text = "Return"
+
+[connection signal="button_down" from="MenuButtons/return" to="." method="_on_return_button_down"]

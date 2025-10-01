@@ -1,0 +1,8 @@
+1. First background song can set directly in the components node
+2. Call
+AudioManager.play_background_song("<song name without extension file name>") to play and replace background music
+AudioManager.play_sound_effect("<sound effect name without extension file name>") to play a sound effect and it will be destroy after finished
+
+AudioManager.background_music_volume and sound_effect_volume can set directly
+or use func set_sound_effect_volume("<value linear 0-1>") and set_background_music_volume("<value linear 0-1>") instead
+dont set to _background_music_volume or _sound_effect_volume

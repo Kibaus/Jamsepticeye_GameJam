@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cixf3wvefct1u"]
+[gd_scene load_steps=9 format=3 uid="uid://cixf3wvefct1u"]
 
 [ext_resource type="Script" uid="uid://ct2pb3ccvpyit" path="res://scripts/ui_manager.gd" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://c676rw6y8mnym" path="res://scripts/spin_thing.gd" id="1_tbgi4"]
-[ext_resource type="Script" uid="uid://burm2o27aow6c" path="res://scripts/ui_main.gd" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://dmfbllq0v2l7u" path="res://scripts/ui_pause.gd" id="3_jyhfs"]
-[ext_resource type="Script" uid="uid://qgofm7mi18qv" path="res://scripts/ui_options.gd" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dfma1x4vpjig2" path="res://scenes/ui_main.tscn" id="3_tefeu"]
+[ext_resource type="PackedScene" uid="uid://dsmv4yrsau6xy" path="res://scenes/ui_pause.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://bf5knpqguv2r1" path="res://scenes/ui_options.tscn" id="5_tipki"]
+[ext_resource type="PackedScene" uid="uid://s7ma42yxvhwv" path="res://scenes/ui_ingame.tscn" id="6_85g3d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tbgi4"]
 
@@ -45,166 +46,18 @@ size_flags_vertical = 3
 theme = SubResource("Theme_0wfyh")
 script = ExtResource("1_o5qli")
 
-[node name="ui_main" type="Control" parent="UIManager"]
+[node name="ui_main" parent="UIManager" instance=ExtResource("3_tefeu")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("2_0wfyh")
 
-[node name="Label" type="Label" parent="UIManager/ui_main"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 24.0
-offset_right = 20.0
-offset_bottom = 55.000015
-grow_horizontal = 2
-text = "GAME TITLE"
-
-[node name="MenuButtons" type="VBoxContainer" parent="UIManager/ui_main"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_right = 80.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="play" type="Button" parent="UIManager/ui_main/MenuButtons"]
-layout_mode = 2
-text = "Play"
-
-[node name="options" type="Button" parent="UIManager/ui_main/MenuButtons"]
-layout_mode = 2
-text = "Options"
-
-[node name="exit" type="Button" parent="UIManager/ui_main/MenuButtons"]
-layout_mode = 2
-text = "Exit"
-
-[node name="ui_pause" type="Control" parent="UIManager"]
+[node name="ui_pause" parent="UIManager" instance=ExtResource("4_o6xl0")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_jyhfs")
 
-[node name="Label" type="Label" parent="UIManager/ui_pause"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 24.0
-offset_right = 20.0
-offset_bottom = 55.000015
-grow_horizontal = 2
-text = "GAME TITLE
---Paused--"
-horizontal_alignment = 1
-
-[node name="MenuButtons" type="VBoxContainer" parent="UIManager/ui_pause"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -80.0
-offset_right = 80.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="continue" type="Button" parent="UIManager/ui_pause/MenuButtons"]
-layout_mode = 2
-text = "Continue"
-
-[node name="options" type="Button" parent="UIManager/ui_pause/MenuButtons"]
-layout_mode = 2
-text = "Options"
-
-[node name="totitle" type="Button" parent="UIManager/ui_pause/MenuButtons"]
-layout_mode = 2
-text = "Return to title"
-
-[node name="ui_options" type="Control" parent="UIManager"]
+[node name="ui_options" parent="UIManager" instance=ExtResource("5_tipki")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_sugp2")
 
-[node name="Label" type="Label" parent="UIManager/ui_options"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 24.0
-offset_right = 20.0
-offset_bottom = 55.000015
-grow_horizontal = 2
-text = "OPTIONS"
-
-[node name="MenuButtons" type="VBoxContainer" parent="UIManager/ui_options"]
-layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -160.0
-offset_right = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 16
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UIManager/ui_options/MenuButtons"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="UIManager/ui_options/MenuButtons/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Option"
-
-[node name="TextEdit" type="TextEdit" parent="UIManager/ui_options/MenuButtons/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "value"
-
-[node name="return" type="Button" parent="UIManager/ui_options/MenuButtons"]
-layout_mode = 2
-text = "Return"
-
-[node name="ui_ingame" type="Control" parent="UIManager"]
+[node name="ui_ingame" parent="UIManager" instance=ExtResource("6_85g3d")]
 visible = false
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[connection signal="button_down" from="UIManager/ui_main/MenuButtons/play" to="UIManager/ui_main" method="_on_play_button_down"]
-[connection signal="button_down" from="UIManager/ui_main/MenuButtons/options" to="UIManager/ui_main" method="_on_options_button_down"]
-[connection signal="button_down" from="UIManager/ui_main/MenuButtons/exit" to="UIManager/ui_main" method="_on_exit_button_down"]
-[connection signal="button_down" from="UIManager/ui_pause/MenuButtons/continue" to="UIManager/ui_pause" method="_on_continue_button_down"]
-[connection signal="button_down" from="UIManager/ui_pause/MenuButtons/options" to="UIManager/ui_pause" method="_on_options_button_down"]
-[connection signal="button_down" from="UIManager/ui_pause/MenuButtons/totitle" to="UIManager/ui_pause" method="_on_totitle_button_down"]
-[connection signal="button_down" from="UIManager/ui_options/MenuButtons/return" to="UIManager/ui_options" method="_on_return_button_down"]
+layout_mode = 0
