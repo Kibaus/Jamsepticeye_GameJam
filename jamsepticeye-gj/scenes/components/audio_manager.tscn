@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxiqy0m2i8a5k"]
 
-[ext_resource type="Script" uid="uid://c6ssajrve3ldt" path="res://scripts/data_class/audio_with_tag.gd" id="2_q7pj8"]
+[ext_resource type="Script" uid="uid://c6ssajrve3ldt" path="res://scripts/the_class/audio_with_tag.gd" id="2_q7pj8"]
 [ext_resource type="Script" uid="uid://dc3rne03xbyid" path="res://scripts/audio_manager.gd" id="2_t0ifg"]
 [ext_resource type="AudioStream" uid="uid://c67u0psapw7ql" path="res://audio/music/an_old_dream.mp3" id="3_v7pfr"]
 [ext_resource type="AudioStream" uid="uid://wm38gqd46obm" path="res://audio/music/sayonara_gokko.mp3" id="4_v7pfr"]
