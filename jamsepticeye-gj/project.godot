@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Core="*res://scripts/core.gd"
-AudioManager="*res://scenes/components/audio_manager.tscn"
 
 [display]
 
