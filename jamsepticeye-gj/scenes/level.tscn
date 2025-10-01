@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dncheeietg615"]
+
+[node name="Level" type="Node"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Environment" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -937.2869, 617.2121, -387.80377)
+size = Vector3(2664.5193, 1000, 2573.397)
+
+[node name="door" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 374.17648, 244.33334, 112.891174)
+operation = 2
+size = Vector3(100.44715, 137.664, 126.84583)
+
+[node name="empyspace" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -513.5299, 625.5378, -385.90442)
+operation = 2
+size = Vector3(1693.6099, 900, 2528.2783)
+
+[node name="Steps" type="CSGPolygon3D" parent="."]
+transform = Transform3D(118.13945, 0, 0, 0, 288.22784, 0, 0, 0, -157.53691, 135.38425, 239.23657, -1630.8479)
+polygon = PackedVector2Array(0.46342945, -0.21713567, -0.86670774, -0.20551443, 1.6449697, 0.4614312, 1.8280221, -0.2338751)
+
+[node name="Steps2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(0.5649624, 0, 157.53514, 0, 288.22784, 0, 118.13811, 0, -0.7533722, -1022.0014, 236.89273, 668.26776)
+polygon = PackedVector2Array(0.46342945, -0.21713567, -0.86670774, -0.20551443, 1.6449697, 0.4614312, 1.8280221, -0.2338751)
+
+[node name="Room1wall" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -179.35046, 363.591, 601.36163)
+size = Vector3(1, 379.14468, 545.0507)
+
+[node name="hallway" type="CSGBox3D" parent="."]
+transform = Transform3D(0.01486963, 0, 0.99988943, 0, 1, 0, -0.99988943, 0, 0.01486963, -379.1154, 363.591, 363.5827)
+size = Vector3(78.490234, 379.14468, 545.0507)
+
+[node name="hallway2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99998647, 0, 0.0052185953, 0, 1, 0, -0.0052185953, 0, 0.99998647, -964.02576, 363.591, 590.56055)
+size = Vector3(78.490234, 379.14468, 545.0507)
+
+[node name="table" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99998647, 0, 0.0052185953, 0, 1, 0, -0.0052185953, 0, 0.99998647, -812.916, 258.7522, -488.64844)
+size = Vector3(190.38501, 159.72789, 187.54114)
+
+[node name="picture 1" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99998647, 0, 0.0052185953, 0, 1, 0, -0.0052185953, 0, 0.99998647, -1358.6559, 403.12582, -433.57056)
+size = Vector3(4.5842896, 138.45328, 78.35358)
+
+[node name="picture2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99998647, 0, 0.0052185953, 0, 1, 0, -0.0052185953, 0, 0.99998647, -1358.6559, 438.88083, -221.13942)
+size = Vector3(4.5842896, 138.45328, 78.35358)
+
+[node name="picture3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.99998647, 0, 0.0052185953, 0, 1, 0, -0.0052185953, 0, 0.99998647, -1358.6559, 438.88083, -598.2063)
+size = Vector3(4.5842896, 138.45328, 78.35358)
+
+[node name="celing" type="CSGBox3D" parent="."]
+transform = Transform3D(-0.0068586078, 0.99997646, -0.0005758237, -0.99997646, -0.00685847, 0.00025792528, 0.00025396358, 0.00057758176, 0.99999976, 67.75752, 554.38495, 584.6591)
+size = Vector3(1, 523.84674, 545.0507)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.031410728, 0, 0.99950653, 0, 1, 0, -0.99950653, 0, 0.031410728, 77.290405, 363.591, 336.478)
+size = Vector3(1, 379.14468, 513.1923)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4107666, -95.53494, -47.160454)
+operation = 2
+size = Vector3(11.929901, 212.00093, 141.84323)
