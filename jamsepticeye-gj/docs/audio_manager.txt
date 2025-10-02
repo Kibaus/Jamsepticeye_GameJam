@@ -1,8 +1,25 @@
-1. First background song can set directly in the components node
-2. Call
+1. Audio Manager: The node will spawn stream on global
+First background song can set directly in the components node
+
+Call:
 AudioManager.play_background_song("<song name without extension file name>") to play and replace background music
-AudioManager.play_sound_effect("<sound effect name without extension file name>") to play a sound effect and it will be destroy after finished
+AudioManager.play_short_sound_effect("<sound effect name without extension file name>") to return a sound effect and it will be destroy after finished
+AudioManager.play_maintain_sound_effect("<sound effect name without extension file name>") to return a sound effect and it will be destroy when you want
 
 AudioManager.background_music_volume and sound_effect_volume can set directly
 or use func set_sound_effect_volume("<value linear 0-1>") and set_background_music_volume("<value linear 0-1>") instead
 dont set to _background_music_volume or _sound_effect_volume
+
+pause_background_music()
+resume_background_music()
+
+2. Audio Client: The node will spawn stream local on instance 3D
+The instance can create node audio client by manual or script (should set the name "AudioManager")
+
+play_oneshot("<sound name>", other param): return an stream that will destroy after finish
+play_polyphony("<sound name>", other param): return an stream that can be play many time to repeat
+play_maintain("<sound name>", other param): return an stream that will be loop
+
+free_all_stream(): destroy all stream available in node
+
+3. Audio Listener

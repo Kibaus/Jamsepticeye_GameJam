@@ -36,6 +36,7 @@ func _ready() -> void:
 	load_sounds_from_folder(music_folder)
 	load_sounds_from_folder(sfx_folder)
 	background_music.volume_linear = background_music_volume
+	print(background_music.volume_linear)
 	#Call defer in case get tree paused
 	if Engine.is_editor_hint() == false:
 		background_music.call_deferred("play")
@@ -56,7 +57,7 @@ func load_sounds_from_folder(folder_path: String) -> void:
 				var audio_stream = load(audio_path) as AudioStream 
 				if audio_stream:
 					var tag_name = file_name.get_basename()
-					if not _get_audio_by_tag(tag_name):
+					if not get_audio_by_tag(tag_name):
 						var audio_res = AudioWithTag.new()
 						audio_res.file = audio_stream
 						audio_res.tag = tag_name
@@ -65,17 +66,17 @@ func load_sounds_from_folder(folder_path: String) -> void:
 	dir.list_dir_end()
 
 #Find the audio file by it's name
-func _get_audio_by_tag(pTag: String) -> AudioWithTag:
+func get_audio_by_tag(p_tag: String) -> AudioWithTag:
 	for audio_res in sound_list:
-		if audio_res.tag == pTag:
+		if audio_res.tag == p_tag:
 			return audio_res
 	return null
 
 #Play the sound and it will be destroy after finished
-func play_sound_effect(pTag: String) -> void:
-	var audio_res = _get_audio_by_tag(pTag)
+func play_short_sound_effect(p_tag: String) -> AudioStreamPlayer:
+	var audio_res = get_audio_by_tag(p_tag)
 	if not audio_res:
-		print("(Oneshot) Audio File not found: ", pTag)
+		print("(Oneshot) Audio File not found: ", p_tag)
 		return
 	
 	var player = AudioStreamPlayer.new()
@@ -85,29 +86,50 @@ func play_sound_effect(pTag: String) -> void:
 	add_child(player)
 	player.connect("finished", Callable(player, "queue_free"))
 	player.call_deferred("play")
-	#player.play()
+	return player
+	
+func play_maintain_sound_effect(p_tag: String) -> AudioStreamPlayer:
+	var audio_res = get_audio_by_tag(p_tag)
+	if not audio_res:
+		print("(Oneshot) Audio File not found: ", p_tag)
+		return
+	
+	var player = AudioStreamPlayer.new()
+	player.volume_linear = sound_effect_volume
+	player.stream = audio_res.file
+	add_child(player)
+	player.call_deferred("play")
+	return player
 
 #Update the background music now
-func play_background_music(pTag: String) -> void:
+func play_background_music(p_tag: String) -> void:
 	var fade_time: float = 1.0
-	var new_audio = _get_audio_by_tag(pTag)
+	var new_audio = get_audio_by_tag(p_tag)
 	if not new_audio:
-		print("(Background Music) Audio File not found: ", pTag)
+		print("(Background Music) Audio File not found: ", p_tag)
 		return
 
 	var tween = create_tween()
 	tween.tween_property(background_music, "volume_db", -80, fade_time)
 	tween.tween_callback(func(): _switch_background_music(new_audio, fade_time))
 
-func _switch_background_music(new_audio: AudioWithTag, fade_time: float) -> void:
-	print("Cast")
-
-	background_music.stream = new_audio.file
+func _switch_background_music(p_new_audio: AudioWithTag, p_fade_time: float) -> void:
+	background_music.stream = p_new_audio.file
 	#Temporary set, when all music import and manual set loop, don't need
 	background_music.connect("finished", Callable(background_music, "play"))
 	background_music.call_deferred("play")
-
-
 	var target_db = background_music_volume
 	var tween = create_tween()
-	tween.tween_property(background_music, "volume_linear", target_db, fade_time)
+	tween.tween_property(background_music, "volume_linear", target_db, p_fade_time)
+
+func pause_background_music() -> void:
+	background_music.stream_paused = true
+
+func resume_background_music() -> void:
+	background_music.play()
+
+func free_all_sound_effect() -> void:
+	for child in get_children():
+		if(child != background_music):
+			child.queue_free()
+		
