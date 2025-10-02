@@ -79,18 +79,18 @@ func swap_sunmoon_doors(animate : bool = true):
 		current_sunmoonstate = SunMoonState.Sun
 
 func swap_swordshield_doors(animate : bool = true):
-	if current_sunmoonstate == SunMoonState.Sun:
-		for door in sun_doors:
+	if current_swordshieldstate == SwordShieldState.Sword:
+		for door in sword_doors:
 			door.close(animate)
-		for door in moon_doors:
+		for door in shield_doors:
 			door.open(animate)
-		current_sunmoonstate = SunMoonState.Moon
+		current_swordshieldstate = SwordShieldState.Shield
 	else:
-		for door in sun_doors:
+		for door in sword_doors:
 			door.open(animate)
-		for door in moon_doors:
+		for door in shield_doors:
 			door.close(animate)
-		current_sunmoonstate = SunMoonState.Sun
+		current_swordshieldstate = SwordShieldState.Sword
 
 
 func _on_timer_timeout() -> void:
