@@ -33,7 +33,6 @@ size = Vector3(312.09677, 397.79083, 169.14508)
 
 [node name="door" type="CSGBox3D" parent="CSGCombiner3D2"]
 transform = Transform3D(0.42343628, 0, 0, 0, 0.42590743, 0, 0, 0, 0.6742208, 2364.5498, 878.0125, -1388.4598)
-visible = false
 operation = 2
 size = Vector3(312.09677, 243.7526, 169.14508)
 
