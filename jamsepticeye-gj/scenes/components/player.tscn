@@ -26,3 +26,5 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CamPivot"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]

@@ -25,12 +25,10 @@ tag = "step"
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("2_t0ifg")
-background_music_volume = 0.58
 sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_v7pfr"), SubResource("Resource_xu4a8"), SubResource("Resource_li0p0")])
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v7pfr")
-volume_db = -4.73144
 autoplay = true
 parameters/looping = true
 script = SubResource("GDScript_v7pfr")
