@@ -3,16 +3,6 @@ extends Node3D
 func _ready() -> void:
 	pass
 	
-var temp_stream: AudioStreamPlayer3D
-
-func _physics_process(delta: float) -> void:
-	if(Input.is_action_just_pressed("testa")):
-		temp_stream = play_maintain("sayonara_gokko")
-	if(Input.is_action_just_pressed("testb")):
-		#if(is_instance_valid(temp_stream)):
-			##temp_stream.queue_free()
-		free_all_stream()
-
 #Create stream that will free after finished
 func play_oneshot(
 		p_audio_tag: String, 
