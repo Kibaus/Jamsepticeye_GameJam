@@ -32,9 +32,9 @@ material_override = ExtResource("1_ppgk2")
 use_collision = true
 
 [node name="Roof" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 24.57437, 5.342999, -3.958982)
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 23.9494, 6.2050743, -3.9589865)
 material_override = ExtResource("1_ppgk2")
-size = Vector3(79, 0.060791016, 88)
+size = Vector3(80.25, 0.060791016, 89)
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.49408, 0.08529124, -3.9794922)
