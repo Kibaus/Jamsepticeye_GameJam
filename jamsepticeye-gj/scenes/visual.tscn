@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://clfwmm61q55ye"]
+[gd_scene load_steps=10 format=3 uid="uid://clfwmm61q55ye"]
 
+[ext_resource type="PackedScene" uid="uid://br41ag8tiywo0" path="res://Prefabs/Dungeon_DoorFrame.glb" id="1_5h6hl"]
 [ext_resource type="PackedScene" uid="uid://by3bdi2fa451q" path="res://Prefabs/Dungeon_WallPillar.glb" id="1_fixx2"]
 [ext_resource type="PackedScene" uid="uid://jtl70ydxfkxb" path="res://Prefabs/Dungeon_Wall.glb" id="2_5h6hl"]
+[ext_resource type="PackedScene" uid="uid://cqgkjpa2vjsks" path="res://Prefabs/Dungeon_GateDoor.glb" id="4_wic5t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wic5t"]
+albedo_color = Color(0.21789971, 0.25054646, 0.303711, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag826"]
 albedo_color = Color(1, 0, 0.03137255, 1)
@@ -19,6 +24,7 @@ albedo_color = Color(1.1310726e-06, 0.63421637, 9.62615e-07, 1)
 
 [node name="Environment" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 0)
+use_collision = true
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.49408, 0.08529124, -3.9794922)
@@ -35,34 +41,16 @@ visible = false
 size = Vector3(1, 1, 1.2128906)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, -9.173492, 0.6040964, -10.611841)
-visible = false
-size = Vector3(1, 1, 0.39050293)
+transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, -9.362923, 3.1040964, -10.575052)
+size = Vector3(1.2517395, 6, 0.37911987)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, -9.362924, 3.1040964, 3.0202904)
+size = Vector3(1.2517395, 6, 0.37911987)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, -9.173493, 0.6040964, 2.9999995)
-visible = false
 size = Vector3(1, 1, 0.39050293)
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.469517, 0, 1, 0, 1, 0, -1.4629991e-06, 17.139194, 0.6040964, -10.96844)
-visible = false
-size = Vector3(1, 1, 0.3353119)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.469517, 0, 1, 0, 1, 0, -1.4629991e-06, 17.080208, 0.6040964, 3.000001)
-visible = false
-size = Vector3(1, 1, 0.34274292)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, 40.98643, 0.6040964, -10.968439)
-visible = false
-size = Vector3(1, 1, 0.3353119)
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, 40.927444, 0.6040964, 3.000002)
-visible = false
-size = Vector3(1, 1, 0.34274292)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 11, 0.6040964, 2.5880322)
@@ -75,20 +63,20 @@ visible = false
 size = Vector3(1, 1, 0.845459)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 32.229515, 0.6040964, 28.070745)
-size = Vector3(0.94677734, 1, 0.69003296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 32.229515, 3.212739, 28.045067)
+size = Vector3(0.947, 6, 0.691543)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, -0.102710724, 0.6040964, 28.070745)
-size = Vector3(0.94677734, 1, 0.69003296)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, -0.102710724, 3.150239, 28.070745)
+size = Vector3(0.947, 6, 0.69)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 7.995118, 0.6040964, 24.088015)
-size = Vector3(0.94677734, 1, 0.45070648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 7.995118, 3.2394772, 24.088015)
+size = Vector3(0.947, 6, 0.451)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 25.08787, 0.6040964, 24.088015)
-size = Vector3(0.94677734, 1, 0.45070648)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 25.08918, 3.2382917, 24.088015)
+size = Vector3(0.947, 6, 0.451)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 35, 0.6040964, -10.598431)
@@ -101,38 +89,39 @@ visible = false
 size = Vector3(1, 1, 0.845459)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 63, 0.6040964, -1.346833)
-size = Vector3(1, 1, 1.0809326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 33.28282, 63, 3.0992136, -0.92475146)
+size = Vector3(1, 6, 1.0556366)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, 23.541126, 0.6040964, 16.135384)
-size = Vector3(1, 1, 2.3459198)
+transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, 23.05742, 3.202424, 16.135384)
+size = Vector3(1, 6.062378, 2.375)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, 23.473108, 0.6040964, -24.139902)
-size = Vector3(1, 1, 2.398777)
+transform = Transform3D(-4.371139e-08, 0, -33.28282, 0, 1, 0, 1, 0, -1.4548383e-06, 23.473108, 3.1062021, -24.139902)
+material_override = SubResource("StandardMaterial3D_wic5t")
+size = Vector3(1, 6, 2.399)
 
 [node name="Boolean_CorridorA" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1.2596008, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 20.509504, 1.0278988, -24.113646)
+transform = Transform3D(1.2596008, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 20.509504, 3.0210874, -24.113646)
 operation = 2
-size = Vector3(6, 2, 1.7138367)
+size = Vector3(6, 6.260742, 1.714)
 
 [node name="Boolean_CorridorB" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1.1230755, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 54.90493, 1.0278988, -24.28208)
+transform = Transform3D(1.1230755, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 54.90493, 3.0164154, -24.28208)
 transparency = 1.0
 operation = 2
-size = Vector3(6, 2, 1.7138367)
+size = Vector3(6, 6.2646484, 1.714)
 
 [node name="Boolean_CorridorC" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(0.8355665, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 3.9454575, 1.0278988, 16.159134)
+transform = Transform3D(0.8355665, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 3.9454575, 3.111293, 16.159134)
 operation = 2
-size = Vector3(8.57019, 2, 1.7138367)
+size = Vector3(8.57019, 6.5180054, 1.7138367)
 
 [node name="Boolean_CorridorD" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(0.87472117, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 28.652714, 1.0278988, 16.114532)
+transform = Transform3D(0.87472117, 0, 0, 0, 0.92226285, 0, 0, 0, 1, 28.676939, 3.1249716, 16.114532)
 transparency = 1.0
 operation = 2
-size = Vector3(7.088684, 2, 1.7138367)
+size = Vector3(7.1440735, 6.5476685, 1.7138367)
 
 [node name="CorridorDown" type="Node" parent="."]
 
@@ -149,12 +138,12 @@ transform = Transform3D(0.099999964, 0, 0, 0, 1, 0, 0, 0, 1, -7.0264244, 0.08529
 size = Vector3(331, 0.060791016, 8)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="CorridorDown"]
-transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, -6.461873, 0.6040964, 32.031563)
-size = Vector3(1, 1, 0.5458009)
+transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, -6.461873, 3.2432947, 32.031563)
+size = Vector3(1, 6, 0.546)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="CorridorDown"]
-transform = Transform3D(-4.371139e-08, 0, -60.259125, 0, 1, 0, 1, 0, -2.6340101e-06, -6.9343305, 0.6040964, 40.031563)
-size = Vector3(1, 1, 0.55275893)
+transform = Transform3D(-4.371139e-08, 0, -60.259125, 0, 1, 0, 1, 0, -2.6340101e-06, -6.9343305, 3.1661692, 40.031563)
+size = Vector3(1, 6, 0.553)
 
 [node name="CorridorUp" type="Node" parent="."]
 
@@ -171,28 +160,28 @@ transform = Transform3D(0.099999964, 0, 0, 0, 1, 0, 0, 0, 1, 14.473568, 0.085291
 size = Vector3(425, 0.060791016, 8)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 28.047462, 0.6040964, -32.056343)
-size = Vector3(1, 1, 0.8548584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 28.047462, 3.1040964, -32.056343)
+size = Vector3(1, 6, 0.8548584)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 1.796814, 0.6040964, -32.056343)
-size = Vector3(1, 1, 0.8548584)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 1.796814, 3.1040964, -32.056343)
+size = Vector3(1, 6, 0.8548584)
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, -6.7680035, 0.6040964, -36.12429)
-size = Vector3(1, 1, 1.3234253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, -6.7680035, 3.1040964, -36.12429)
+size = Vector3(1, 6, 1.3234253)
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 35.78883, 0.6040964, -36.12429)
-size = Vector3(1, 1, 1.3234253)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 17.363363, 35.78883, 3.1040964, -36.12429)
+size = Vector3(1, 6, 1.3234253)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, 14.906446, 0.6040964, -39.968437)
-size = Vector3(1, 1, 0.8250673)
+transform = Transform3D(-4.371139e-08, 0, -33.082726, 0, 1, 0, 1, 0, -1.4460919e-06, 14.906446, 3.1040964, -39.968437)
+size = Vector3(1, 6, 0.8250673)
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="CorridorUp"]
-transform = Transform3D(-4.371139e-08, 0, -60.259125, 0, 1, 0, 1, 0, -2.6340101e-06, 14.498253, 0.6040964, -48.0511)
-size = Vector3(1, 1, 0.72293246)
+transform = Transform3D(-4.371139e-08, 0, -60.259125, 0, 1, 0, 1, 0, -2.6340101e-06, 14.498253, 3.1040964, -48.0511)
+size = Vector3(1, 6, 0.72293246)
 
 [node name="Doors" type="Node" parent="."]
 
@@ -222,9 +211,9 @@ material_override = SubResource("StandardMaterial3D_5h6hl")
 size = Vector3(1.2741699, 0.6425781, 0.48203468)
 
 [node name="DoorCD" type="CSGBox3D" parent="Doors"]
-transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 39.792877, 1.3949859, -21.44153)
+transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 39.792877, 1.3949859, -20.924402)
 material_override = SubResource("StandardMaterial3D_5h6hl")
-size = Vector3(1.2741699, 0.6425781, 0.6521759)
+size = Vector3(1.2741699, 0.6425781, 0.47629738)
 
 [node name="DoorCC" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 0.048074365, 1.6708909, -3.676495)
@@ -364,3 +353,35 @@ transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08
 
 [node name="Dungeon_Wall3" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
 transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32.300274, 0, -17.374437)
+
+[node name="Dungeon_Corridor" type="Node" parent="."]
+
+[node name="Dungeon_DoorFrame" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 5.693, 0, 15.58)
+
+[node name="Dungeon_DoorFrame2" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -19.097176, 0, 15.58)
+
+[node name="Dungeon_DoorFrame3" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.4596229, 0, -23.520002)
+
+[node name="Dungeon_DoorFrame4" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 31.930025, 0, -23.520002)
+
+[node name="Dungeon_DoorFrame5" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 39.7004, 0, -20.925821)
+
+[node name="Dungeon_GateDoor" parent="." instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 5.693, 0, 15.58)
+
+[node name="Dungeon_GateDoor2" parent="." instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -19.097176, 0, 15.58)
+
+[node name="Dungeon_GateDoor3" parent="." instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.4596229, 4.768372e-07, -23.520002)
+
+[node name="Dungeon_GateDoor4" parent="." instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 31.930025, 4.768372e-07, -23.520002)
+
+[node name="Dungeon_GateDoor5" parent="." instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 39.7004, 4.768372e-07, -20.925821)
