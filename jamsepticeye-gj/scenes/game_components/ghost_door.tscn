@@ -1,13 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdnllgoxrg6cx"]
 
 [ext_resource type="Script" uid="uid://bihowvujpdtjn" path="res://scripts/game_scripts/door.gd" id="1_vsrrk"]
+[ext_resource type="PackedScene" uid="uid://cqgkjpa2vjsks" path="res://Prefabs/Dungeon_GateDoor.glb" id="2_144oh"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_td7ro"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f452"]
 size = Vector3(0.5, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hpvv5"]
-size = Vector3(0.5, 2, 0.4)
 
 [node name="GhostDoor" type="Marker3D"]
 script = ExtResource("1_vsrrk")
@@ -20,24 +18,12 @@ can_sleep = false
 freeze = true
 freeze_mode = 1
 
+[node name="Dungeon_GateDoor" parent="Moveable" instance=ExtResource("2_144oh")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, -0.18727788, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_5f452")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Moveable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Moveable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.6)
-mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../../..")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Moveable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
-mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../../..")
 
 [node name="Symbol1" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true

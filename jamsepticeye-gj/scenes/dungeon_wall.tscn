@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh2paf7fk7fah"]
+
+[ext_resource type="PackedScene" uid="uid://jtl70ydxfkxb" path="res://Prefabs/Dungeon_Wall.glb" id="1_a3sar"]
+
+[node name="Dungeon_Wall" instance=ExtResource("1_a3sar")]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." index="14"]
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+size = Vector3(7.5, 3.5, 8.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+operation = 2
+size = Vector3(6.5, 3.5, 7.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4)
+operation = 2
+size = Vector3(2, 3, 0.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0)
+shadow_enabled = true

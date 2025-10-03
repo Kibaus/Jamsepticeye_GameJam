@@ -1,0 +1,175 @@
+[gd_scene load_steps=24 format=3 uid="uid://b3hbnq2txfjwg"]
+
+[ext_resource type="Script" uid="uid://317eykhdk4xp" path="res://scripts/game_scripts/door_manager.gd" id="1_2eeft"]
+[ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_v4v8k"]
+[ext_resource type="Texture2D" uid="uid://cekhhccdmjr2r" path="res://art/symbols/moon.png" id="3_oibj5"]
+[ext_resource type="Texture2D" uid="uid://b822hysv0h76d" path="res://art/symbols/sword.png" id="4_deeqb"]
+[ext_resource type="Texture2D" uid="uid://dsysib0yp4ada" path="res://art/symbols/shield.png" id="5_q7h7c"]
+[ext_resource type="PackedScene" uid="uid://cdnllgoxrg6cx" path="res://scenes/game_components/ghost_door.tscn" id="6_1hpkv"]
+[ext_resource type="PackedScene" uid="uid://dncheeietg615" path="res://scenes/level.tscn" id="7_erv2c"]
+[ext_resource type="PackedScene" uid="uid://rol1o4iavw6g" path="res://scenes/game_components/door.tscn" id="7_yam7v"]
+[ext_resource type="PackedScene" uid="uid://ef75tbayd3fy" path="res://scenes/game_components/switch.tscn" id="8_gokrx"]
+[ext_resource type="PackedScene" uid="uid://bi1fcsxwupdxd" path="res://scenes/components/player.tscn" id="9_lv1cq"]
+[ext_resource type="Texture2D" uid="uid://b678t5hbo33kn" path="res://art/symbols/fire.png" id="9_q7h7c"]
+[ext_resource type="Texture2D" uid="uid://ciyuekve8fo0a" path="res://art/symbols/ice.png" id="10_1hpkv"]
+[ext_resource type="Texture2D" uid="uid://mhine1ldd25x" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f1.png" id="11_hcndq"]
+[ext_resource type="Texture2D" uid="uid://d0ma0tlwura4q" path="res://art/symbols/life.png" id="11_yam7v"]
+[ext_resource type="Texture2D" uid="uid://hmopg3c3yc3i" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f2.png" id="12_chdjo"]
+[ext_resource type="Texture2D" uid="uid://ceypind6xwrr2" path="res://art/symbols/death.png" id="12_gokrx"]
+[ext_resource type="Texture2D" uid="uid://bbssb0okumrxe" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f3.png" id="13_mjadu"]
+[ext_resource type="Texture2D" uid="uid://bkr6kel44466a" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f4.png" id="14_k8jaa"]
+[ext_resource type="Texture2D" uid="uid://cyy2cso8jwr2c" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f5.png" id="15_hp34j"]
+[ext_resource type="Texture2D" uid="uid://dcuj4s4p3a0tm" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f6.png" id="16_lxcs1"]
+[ext_resource type="Texture2D" uid="uid://b0hicwov1pk4p" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f7.png" id="17_hxr5a"]
+[ext_resource type="Texture2D" uid="uid://c8piyk1l5dvjq" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f8.png" id="18_4m7q6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhx41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_hcndq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_chdjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mjadu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k8jaa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hp34j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lxcs1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hxr5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_4m7q6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node"]
+
+[node name="DoorSets" type="Node" parent="."]
+
+[node name="DoorSetA" type="Node" parent="DoorSets" node_paths=PackedStringArray("a_doors", "b_doors", "ab_switches")]
+script = ExtResource("1_2eeft")
+a_doors = [NodePath("Door3")]
+b_doors = [NodePath("GhostDoor")]
+ab_switches = [NodePath("Switch2")]
+symbol_a = ExtResource("4_deeqb")
+symbol_b = ExtResource("5_q7h7c")
+
+[node name="GhostDoor" parent="DoorSets/DoorSetA" instance=ExtResource("6_1hpkv")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.5, 0.25, 4)
+
+[node name="Door3" parent="DoorSets/DoorSetA" instance=ExtResource("7_yam7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125, 0.125, -6.75)
+
+[node name="Switch2" parent="DoorSets/DoorSetA" instance=ExtResource("8_gokrx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -11.625, 1, 0.875)
+
+[node name="DoorSetB" type="Node" parent="DoorSets" node_paths=PackedStringArray("a_doors", "b_doors", "ab_switches")]
+script = ExtResource("1_2eeft")
+a_doors = [NodePath("GhostDoor2")]
+b_doors = [NodePath("Door2")]
+ab_switches = [NodePath("Switch4")]
+symbol_a = ExtResource("2_v4v8k")
+symbol_b = ExtResource("3_oibj5")
+
+[node name="GhostDoor2" parent="DoorSets/DoorSetB" instance=ExtResource("6_1hpkv")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -10.1, 0.25, 4)
+
+[node name="Door2" parent="DoorSets/DoorSetB" instance=ExtResource("7_yam7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0.125, -1.625)
+
+[node name="Switch4" parent="DoorSets/DoorSetB" instance=ExtResource("8_gokrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 1, -9.25)
+
+[node name="DoorSetC" type="Node" parent="DoorSets" node_paths=PackedStringArray("a_doors", "b_doors", "ab_switches")]
+script = ExtResource("1_2eeft")
+a_doors = [NodePath("GhostDoor4")]
+b_doors = [NodePath("Door")]
+ab_switches = [NodePath("Switch")]
+symbol_a = ExtResource("9_q7h7c")
+symbol_b = ExtResource("10_1hpkv")
+
+[node name="Door" parent="DoorSets/DoorSetC" instance=ExtResource("7_yam7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.125, 0.125, -1.625)
+
+[node name="GhostDoor4" parent="DoorSets/DoorSetC" instance=ExtResource("6_1hpkv")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.1, 0.25, -6.75)
+
+[node name="Switch" parent="DoorSets/DoorSetC" instance=ExtResource("8_gokrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 1, 1.5)
+
+[node name="DoorSetD" type="Node" parent="DoorSets" node_paths=PackedStringArray("a_doors", "b_doors", "ab_switches")]
+script = ExtResource("1_2eeft")
+a_doors = [NodePath("GhostDoor3")]
+b_doors = [NodePath("Door3")]
+ab_switches = [NodePath("Switch3")]
+symbol_a = ExtResource("11_yam7v")
+symbol_b = ExtResource("12_gokrx")
+
+[node name="Door3" parent="DoorSets/DoorSetD" instance=ExtResource("7_yam7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -8.375)
+
+[node name="GhostDoor3" parent="DoorSets/DoorSetD" instance=ExtResource("6_1hpkv")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.1, 0.25, -1.5)
+
+[node name="Switch3" parent="DoorSets/DoorSetD" instance=ExtResource("8_gokrx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.625, 1, -4)
+
+[node name="Player" parent="." instance=ExtResource("9_lv1cq")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -2.9649057, 0, 3.979638)
+
+[node name="Level" parent="." instance=ExtResource("7_erv2c")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Enemy"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 7.5, 1, 3.5)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_bhx41")
+autoplay = "default"
+frame = 6
+frame_progress = 0.8805164
+
+[node name="Label3D" type="Label3D" parent="Enemy/AnimatedSprite3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -4.166667, -4.166666)
+text = "Where you going bro?"
+font_size = 352
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 2, 14)
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -6.5)
+shadow_enabled = true
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2, 4)
+shadow_enabled = true
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -17.5)
+shadow_enabled = true
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2, 14)
+shadow_enabled = true
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 2, -17.5)
+shadow_enabled = true
+
+[editable path="Level"]

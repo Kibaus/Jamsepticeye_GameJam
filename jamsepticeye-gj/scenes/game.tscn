@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dibbitpgdr7gr"]
 
-[ext_resource type="Script" uid="uid://cqn70gcucl241" path="res://scripts/game_scripts/door_manager.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://cqn70gcucl241" path="res://scripts/game_scripts/door_manager_old.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bi1fcsxwupdxd" path="res://scenes/components/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://cdnllgoxrg6cx" path="res://scenes/game_components/ghost_door.tscn" id="2_p57ef"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_vtaks"]
@@ -55,10 +55,10 @@ animations = [{
 
 [node name="DoorManager" type="Node" parent="." node_paths=PackedStringArray("sword_doors", "shield_doors", "sun_doors", "moon_doors", "sunmoon_switches", "swordshield_switches")]
 script = ExtResource("1_lbhrr")
-sword_doors = [NodePath("Doors/GhostDoor_cell")]
+sword_doors = [NodePath("")]
 shield_doors = [NodePath("Doors/Door_exit")]
 sun_doors = [NodePath("Doors/Door_test")]
-moon_doors = [NodePath("Doors/GhostDoor_test")]
+moon_doors = [NodePath("")]
 sunmoon_switches = [NodePath("Switches/Switch2")]
 swordshield_switches = [NodePath("Switches/Switch")]
 symbol_sprites = [ExtResource("2_vtaks"), ExtResource("3_kvpfn"), ExtResource("4_dinhu"), ExtResource("5_kvuet")]
@@ -106,4 +106,5 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -
 text = "Where you going bro?"
 font_size = 352
 
+[editable path="DoorManager/Doors/GhostDoor_cell"]
 [editable path="TestEnvironment"]

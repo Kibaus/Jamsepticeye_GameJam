@@ -1,12 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://rol1o4iavw6g"]
 
 [ext_resource type="Script" uid="uid://bihowvujpdtjn" path="res://scripts/game_scripts/door.gd" id="1_hpvv5"]
+[ext_resource type="PackedScene" uid="uid://cj0kqlu53yq02" path="res://Prefabs/Dungeon_SolidWood_Door.glb" id="2_6ys30"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_ps6of"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f452"]
-size = Vector3(0.5, 2, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_hpvv5"]
 size = Vector3(0.5, 2, 2)
 
 [node name="Door" type="Marker3D"]
@@ -24,10 +22,8 @@ freeze_mode = 1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_5f452")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Moveable"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../../..")
+[node name="Dungeon_SolidWood_Door" parent="Moveable" instance=ExtResource("2_6ys30")]
+transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08, 0, 0, 0)
 
 [node name="Symbol1" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true
