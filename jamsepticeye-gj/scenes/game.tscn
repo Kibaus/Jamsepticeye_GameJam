@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dibbitpgdr7gr"]
+[gd_scene load_steps=20 format=3 uid="uid://dibbitpgdr7gr"]
 
 [ext_resource type="Script" uid="uid://cqn70gcucl241" path="res://scripts/game_scripts/door_manager.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bi1fcsxwupdxd" path="res://scenes/components/player.tscn" id="1_uwrxv"]
@@ -10,6 +10,46 @@
 [ext_resource type="PackedScene" uid="uid://rol1o4iavw6g" path="res://scenes/game_components/door.tscn" id="3_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://b822hysv0h76d" path="res://art/symbols/sword.png" id="4_dinhu"]
 [ext_resource type="Texture2D" uid="uid://dsysib0yp4ada" path="res://art/symbols/shield.png" id="5_kvuet"]
+[ext_resource type="Texture2D" uid="uid://mhine1ldd25x" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f1.png" id="11_ssvqc"]
+[ext_resource type="Texture2D" uid="uid://hmopg3c3yc3i" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f2.png" id="12_264po"]
+[ext_resource type="Texture2D" uid="uid://bbssb0okumrxe" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f3.png" id="13_1kice"]
+[ext_resource type="Texture2D" uid="uid://bkr6kel44466a" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f4.png" id="14_5newe"]
+[ext_resource type="Texture2D" uid="uid://cyy2cso8jwr2c" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f5.png" id="15_37s47"]
+[ext_resource type="Texture2D" uid="uid://dcuj4s4p3a0tm" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f6.png" id="16_bt5mj"]
+[ext_resource type="Texture2D" uid="uid://b0hicwov1pk4p" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f7.png" id="17_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://c8piyk1l5dvjq" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f8.png" id="18_pl11u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhx41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ssvqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_264po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1kice")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5newe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_37s47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_bt5mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_e1j6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_pl11u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Game" type="Node"]
 
@@ -41,15 +81,29 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0
 [node name="Switches" type="Node" parent="DoorManager"]
 
 [node name="Switch" parent="DoorManager/Switches" instance=ExtResource("3_iywne")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.50743675, 1.0678084, 3.017274)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.0074367523, 1.0678084, 8.017274)
 
 [node name="Switch2" parent="DoorManager/Switches" instance=ExtResource("3_iywne")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5074368, 1.0678084, 8.017274)
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.4649057, 0, -1.0203619)
-collision_mask = 7
 
 [node name="TestEnvironment" parent="." instance=ExtResource("2_yqjtg")]
+
+[node name="Enemy" type="Node" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Enemy"]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 6, 1, 1.5)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_bhx41")
+autoplay = "default"
+frame = 6
+frame_progress = 0.8805164
+
+[node name="Label3D" type="Label3D" parent="Enemy/AnimatedSprite3D"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -4.166667, -4.166666)
+text = "Where you going bro?"
+font_size = 352
 
 [editable path="TestEnvironment"]

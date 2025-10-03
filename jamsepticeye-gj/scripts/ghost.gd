@@ -1,8 +1,7 @@
+class_name Ghost
 extends CharacterBody3D
 
-@export var ghost_prefab : PackedScene
-
-@export var speed = 160
+@export var speed = 200
 @export var fall_acceleration = 75
 
 @export var jump_enable : bool = false
@@ -15,20 +14,18 @@ var target_velocity = Vector3.ZERO
 @export var max_pitch : float = 89
 @export var min_pitch : float = -89
 
-var currently_active : bool = true
+signal return_to_player
 
 func _ready() -> void:
 	$MeshInstance3D.hide()
 	Input.set_use_accumulated_input(false)
 
 func _input(event) -> void:
-	if currently_active:
-			if event is InputEventMouseMotion:
-				aim_look(event)
+	if event is InputEventMouseMotion:
+		aim_look(event)
 
 func _physics_process(delta: float) -> void:
-	if currently_active:
-		_update_movement(delta)
+	_update_movement(delta)
 
 func _update_movement(delta):
 	var direction = Vector3.ZERO
@@ -64,19 +61,12 @@ func _update_movement(delta):
 	move_and_slide()
 
 func _ghost_switch():
-	var ghost = ghost_prefab.instantiate()
-	ghost.connect("return_to_player",_return_to_player)
-	get_parent().add_child(ghost)
-	ghost.position = position
-	ghost.rotation = rotation
-	ghost.switch_to_ghost()
-	$MeshInstance3D.show()
-	currently_active = false
+	return_to_player.emit()
+	queue_free()
 
-func _return_to_player():
+func switch_to_ghost():
 	$CamPivot/Camera3D.current = true
 	$MeshInstance3D.hide()
-	currently_active = true
 
 func interact():
 	var space_state = get_world_3d().direct_space_state
