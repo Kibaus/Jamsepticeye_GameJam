@@ -30,5 +30,6 @@ sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_v7pfr"), SubRe
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_v7pfr")
 autoplay = true
+bus = &"BackgroundMusic"
 parameters/looping = true
 script = SubResource("GDScript_v7pfr")

@@ -29,30 +29,128 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -160.0
-offset_right = 160.0
+offset_left = -336.0
+offset_right = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuButtons"]
+[node name="Resolution" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-alignment = 1
+split_offset = -105
 
-[node name="Label" type="Label" parent="MenuButtons/HBoxContainer"]
+[node name="Label" type="Label" parent="MenuButtons/Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Option"
+text = "Resolutions"
+horizontal_alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="MenuButtons/HBoxContainer"]
-custom_minimum_size = Vector2(0, 40)
+[node name="OptionButton" type="OptionButton" parent="MenuButtons/Resolution"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "value"
+
+[node name="3DScaling" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/3DScaling"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3D Scale"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/3DScaling"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.1
+
+[node name="FullScreen" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Full Screen"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="MenuButtons/FullScreen"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="VSYNC" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/VSYNC"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSYNC"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="MenuButtons/VSYNC"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MasterVolume" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.01
+
+[node name="BackgroundMusicVolume" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/BackgroundMusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/BackgroundMusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+
+[node name="SFXVolume" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
 
 [node name="return" type="Button" parent="MenuButtons"]
 layout_mode = 2
 text = "Return"
 
+[connection signal="item_selected" from="MenuButtons/Resolution/OptionButton" to="." method="_on_OptionResolution_selected"]
+[connection signal="value_changed" from="MenuButtons/3DScaling/HSlider" to="." method="_on_Option3DScaling_value_changed"]
+[connection signal="toggled" from="MenuButtons/FullScreen/CheckButton" to="." method="_on_FullSCreen_checkbutton_toggle"]
+[connection signal="toggled" from="MenuButtons/VSYNC/CheckButton" to="." method="_on_VSYNC_checkbutton_toggle"]
+[connection signal="value_changed" from="MenuButtons/MasterVolume/HSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="value_changed" from="MenuButtons/BackgroundMusicVolume/HSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="MenuButtons/SFXVolume/HSlider" to="." method="_on_SFXSlider_value_changed"]
 [connection signal="button_down" from="MenuButtons/return" to="." method="_on_return_button_down"]
