@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ef75tbayd3fy"]
+[gd_scene load_steps=8 format=3 uid="uid://ef75tbayd3fy"]
 
+[ext_resource type="Script" uid="uid://drwiq6anuko5n" path="res://scripts/game_scripts/switch.gd" id="1_dorca"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="1_m3hbd"]
 [ext_resource type="Texture2D" uid="uid://cekhhccdmjr2r" path="res://art/symbols/moon.png" id="2_dorca"]
 
@@ -17,9 +18,12 @@ height = 0.2
 size = Vector3(0.05, 0.5, 0.05)
 
 [node name="Switch" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 0
 can_sleep = false
 freeze = true
 freeze_mode = 1
+script = ExtResource("1_dorca")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_djl1i")
@@ -31,20 +35,23 @@ mesh = SubResource("BoxMesh_rwlwd")
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -0.18200156, 0, 0.2445271)
 mesh = SubResource("CylinderMesh_1va4b")
-skeleton = NodePath("../Marker3D/MeshInstance3D")
+skeleton = NodePath("../Moveable/MeshInstance3D")
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, -0.1822941, 0, 0.2278521)
+[node name="Moveable" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.93969256, -0.3420201, 0, 0.3420201, 0.93969256, -0.1822941, 0, 0.24271357)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Marker3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 mesh = SubResource("BoxMesh_m3hbd")
 skeleton = NodePath("../../MeshInstance3D")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Symbol1" type="Sprite3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.0760794, 0.18911047, 0.278128)
 texture = ExtResource("1_m3hbd")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Symbol2" type="Sprite3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, 0.0760794, -0.14226188, 0.278128)
 texture = ExtResource("2_dorca")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cdnllgoxrg6cx"]
 
-[ext_resource type="Script" uid="uid://bihowvujpdtjn" path="res://scripts/door.gd" id="1_vsrrk"]
+[ext_resource type="Script" uid="uid://bihowvujpdtjn" path="res://scripts/game_scripts/door.gd" id="1_vsrrk"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_td7ro"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f452"]
@@ -9,35 +9,42 @@ size = Vector3(0.5, 2, 2)
 [sub_resource type="BoxMesh" id="BoxMesh_hpvv5"]
 size = Vector3(0.5, 2, 0.4)
 
-[node name="GhostDoor" type="RigidBody3D"]
+[node name="GhostDoor" type="Marker3D"]
+script = ExtResource("1_vsrrk")
+
+[node name="Moveable" type="RigidBody3D" parent="."]
+unique_name_in_owner = true
+collision_layer = 4
+collision_mask = 0
 can_sleep = false
 freeze = true
 freeze_mode = 1
-script = ExtResource("1_vsrrk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_5f452")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.6)
 mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Moveable"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.6)
 mesh = SubResource("BoxMesh_hpvv5")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Symbol" type="Sprite3D" parent="."]
+[node name="Symbol1" type="Sprite3D" parent="Moveable"]
+unique_name_in_owner = true
 transform = Transform3D(-1.3769087e-08, 0, 0.315, 0, 0.315, 0, -0.315, 0, -1.3769087e-08, 0.25788373, 1.0003068, 0.000218153)
 texture = ExtResource("2_td7ro")
 
-[node name="Symbol2" type="Sprite3D" parent="."]
+[node name="Symbol2" type="Sprite3D" parent="Moveable"]
+unique_name_in_owner = true
 transform = Transform3D(-1.3769087e-08, 0, 0.315, 0, 0.315, 0, -0.315, 0, -1.3769087e-08, -0.265522, 1.0003068, 0.000218153)
 texture = ExtResource("2_td7ro")

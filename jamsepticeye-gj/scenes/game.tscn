@@ -1,29 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://dibbitpgdr7gr"]
+[gd_scene load_steps=11 format=3 uid="uid://dibbitpgdr7gr"]
 
-[ext_resource type="Script" uid="uid://cqn70gcucl241" path="res://scripts/door_manager.gd" id="1_lbhrr"]
+[ext_resource type="Script" uid="uid://cqn70gcucl241" path="res://scripts/game_scripts/door_manager.gd" id="1_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bi1fcsxwupdxd" path="res://scenes/components/player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cdnllgoxrg6cx" path="res://scenes/game_components/ghost_door.tscn" id="2_p57ef"]
+[ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_vtaks"]
 [ext_resource type="PackedScene" uid="uid://8emfl41vtqta" path="res://scenes/test_environment.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://ef75tbayd3fy" path="res://scenes/game_components/switch.tscn" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://cekhhccdmjr2r" path="res://art/symbols/moon.png" id="3_kvpfn"]
 [ext_resource type="PackedScene" uid="uid://rol1o4iavw6g" path="res://scenes/game_components/door.tscn" id="3_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://b822hysv0h76d" path="res://art/symbols/sword.png" id="4_dinhu"]
+[ext_resource type="Texture2D" uid="uid://dsysib0yp4ada" path="res://art/symbols/shield.png" id="5_kvuet"]
 
 [node name="Game" type="Node"]
 
-[node name="DoorManager" type="Node" parent="." node_paths=PackedStringArray("sun_doors", "moon_doors")]
+[node name="DoorManager" type="Node" parent="." node_paths=PackedStringArray("sword_doors", "shield_doors", "sun_doors", "moon_doors", "sunmoon_switches", "swordshield_switches")]
 script = ExtResource("1_lbhrr")
-sun_doors = [NodePath("Doors/Door")]
-moon_doors = [NodePath("Doors/Door2")]
-current_sunmoonstate = 1
+sword_doors = [NodePath("Doors/GhostDoor_cell")]
+shield_doors = [NodePath("Doors/Door_exit")]
+sun_doors = [NodePath("Doors/Door_test")]
+moon_doors = [NodePath("Doors/GhostDoor_test")]
+sunmoon_switches = [NodePath("Switches/Switch2")]
+swordshield_switches = [NodePath("Switches/Switch")]
+symbol_sprites = [ExtResource("2_vtaks"), ExtResource("3_kvpfn"), ExtResource("4_dinhu"), ExtResource("5_kvuet")]
+current_swordshieldstate = 1
 
 [node name="Doors" type="Node" parent="DoorManager"]
 
-[node name="Door" parent="DoorManager/Doors" instance=ExtResource("3_lnu2h")]
+[node name="GhostDoor_cell" parent="DoorManager/Doors" instance=ExtResource("2_p57ef")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -1)
 
-[node name="Door2" parent="DoorManager/Doors" instance=ExtResource("3_lnu2h")]
+[node name="Door_exit" parent="DoorManager/Doors" instance=ExtResource("3_lnu2h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.6, 0, -1)
+
+[node name="Door_test" parent="DoorManager/Doors" instance=ExtResource("3_lnu2h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.5, 0, 8.5)
+
+[node name="GhostDoor_test" parent="DoorManager/Doors" instance=ExtResource("2_p57ef")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2, 0, 8.5)
 
 [node name="Switches" type="Node" parent="DoorManager"]
 
+[node name="Switch" parent="DoorManager/Switches" instance=ExtResource("3_iywne")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.50743675, 1.0678084, 3.017274)
+
+[node name="Switch2" parent="DoorManager/Switches" instance=ExtResource("3_iywne")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5074368, 1.0678084, 8.017274)
+
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.4649057, 0, -1.0203619)
+collision_mask = 7
 
 [node name="TestEnvironment" parent="." instance=ExtResource("2_yqjtg")]
+
+[editable path="TestEnvironment"]

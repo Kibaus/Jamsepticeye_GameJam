@@ -36,6 +36,9 @@ func _update_movement(delta):
 	if Input.is_action_pressed("move_right"):
 		direction.x += 1
 	
+	if Input.is_action_just_pressed("interact"):
+		interact()
+	
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 
@@ -50,6 +53,27 @@ func _update_movement(delta):
 	
 	velocity = target_velocity.rotated(Vector3.UP,rotation.y)
 	move_and_slide()
+
+func interact():
+	var space_state = get_world_3d().direct_space_state
+	var cam = $CamPivot/Camera3D
+	var ray_length =  0.75
+	
+	var center = get_viewport().size /2
+
+	var origin = cam.project_ray_origin(center)
+	var end = origin + cam.project_ray_normal(center) * ray_length
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.collide_with_areas = true
+
+	var result = space_state.intersect_ray(query)
+	if result == null or result.is_empty():
+		return
+	
+	if result.collider != null:
+		if result.collider is Switch:
+			result.collider.use()
+		print("interacted with: " + result.collider.name)
 
 #Handles aim look with the mouse.
 func aim_look(event: InputEventMouseMotion)-> void:
