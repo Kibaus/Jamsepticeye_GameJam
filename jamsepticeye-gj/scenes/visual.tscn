@@ -371,7 +371,7 @@ transform = Transform3D(1.6481333, 0, 0, 0, 1.7, 0, 0, 0, 5.8957725, -19.187433,
 [node name="IronBar_Gates" type="Node" parent="."]
 
 [node name="Dungeon_GateDoor3" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.4596229, 0.31079388, -24.18634)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.4577847, 0.32064247, -24.182041)
 
 [node name="Dungeon_GateDoor8" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
 transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 10.329718, 0.31079388, -17.386341)
