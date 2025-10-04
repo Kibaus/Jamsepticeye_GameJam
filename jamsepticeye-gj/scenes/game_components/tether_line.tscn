@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dafq3mspjbgue"]
+
+[ext_resource type="Shader" uid="uid://clxnrkwdflr5s" path="res://Materials/spatial/tether_shader.gdshader" id="1_fbevm"]
+[ext_resource type="Script" uid="uid://7wt8c2vuqonm" path="res://scripts/tether_line.gd" id="2_5vvcv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4i73"]
+render_priority = 0
+shader = ExtResource("1_fbevm")
+shader_parameter/color = Color(0.739, 1.911, 2.616, 0.145)
+shader_parameter/glow_strength = 6.0
+shader_parameter/glow_width = 0.33500001521398004
+shader_parameter/alpha_cutoff = 0.0
+shader_parameter/body_intensity = 0.2
+
+[node name="TetherLine" type="MeshInstance3D"]
+material_override = SubResource("ShaderMaterial_v4i73")
+script = ExtResource("2_5vvcv")

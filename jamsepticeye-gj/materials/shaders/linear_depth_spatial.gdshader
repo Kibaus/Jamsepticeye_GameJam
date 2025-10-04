@@ -3,11 +3,11 @@ render_mode unshaded; // Bỏ depth_draw_never để nó có thể ghi đè lên
 
 uniform float mix_factor : hint_range(0.0, 1.0, 0.01) = 0.0;
 
-uniform float max_depth : hint_range(0.0, 50.0, 0.01) = 5.0;
+uniform float max_depth : hint_range(0.0, 50.0, 0.01) = 40.0;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
-uniform float depth_factor : hint_range(0.0, 256.0, 0.1) = 80.0;
+uniform float depth_factor : hint_range(0.0, 256.0, 0.1) = 18.0;
 
 uniform sampler2D DEPTH_TEXTURE : hint_depth_texture;
 
@@ -25,5 +25,6 @@ void fragment() {
 
     ALBEDO = final_color;
 
-    ALPHA = mix(1.0, 0.95, mix_factor);
+    //ALPHA = mix(1.0, 0.95, mix_factor);
+	ALPHA = 0.85;
 }
