@@ -360,7 +360,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3424015, 2.6802344, 28.151396)
+transform = Transform3D(1.7241381, 0, 0, 0, 1.7241381, 0, 0, 0, 1.7241381, 7.911372, 3.5423052, 28.151417)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
@@ -369,7 +369,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.651149, 2.6802344, 32.94464)
+transform = Transform3D(1.7241381, 0, 0, 0, 1.7241381, 0, 0, 0, 1.7241381, -6.65115, 3.1112695, 33.375683)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
@@ -378,7 +378,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.250614, 2.6802344, 28.152447)
+transform = Transform3D(1.7241381, 0, 0, 0, 1.7241381, 0, 0, 0, 1.7241381, -21.819582, 3.1112695, 28.152452)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
@@ -387,7 +387,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D18" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.84045, 2.6802344, -39.91884)
+transform = Transform3D(-1.7241381, 0, -1.5072894e-07, 0, 1.7241381, 0, 1.5072894e-07, 0, -1.7241381, -4.9783816, 3.1112695, -39.918846)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
@@ -396,7 +396,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D19" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 16.95649, 2.6802344, -40.90029)
+transform = Transform3D(-1.7241381, 0, -1.5072894e-07, 0, 1.7241381, 0, 1.5072894e-07, 0, -1.7241381, 16.956493, 3.1112695, -41.331333)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
@@ -405,7 +405,7 @@ light_specular = 0.802
 shadow_enabled = true
 
 [node name="OmniLight3D20" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 34.86156, 2.6802344, -39.89263)
+transform = Transform3D(-1.7241381, 0, -1.5072894e-07, 0, 1.7241381, 0, 1.5072894e-07, 0, -1.7241381, 33.999508, 3.11127, -40.32368)
 light_color = Color(0.85067254, 0.61167455, 0.5650351, 1)
 light_energy = 5.0
 light_indirect_energy = 0.0
