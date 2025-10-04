@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbuq6wnp7rkpn"]
+
+[ext_resource type="PackedScene" uid="uid://dqj02ru2f4q4v" path="res://Prefabs/Dungeon_Cage.glb" id="1_6gmss"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rdmyr"]
+height = 2.9387512
+radius = 1.0708008
+
+[node name="Dungeon_Cage2" instance=ExtResource("1_6gmss")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="Dungeon_Cage" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Dungeon_Cage/RigidBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5639801, 0)
+shape = SubResource("CylinderShape3D_rdmyr")
