@@ -8,6 +8,7 @@ size = Vector3(4.1499634, 1.9102135, 6.1279297)
 [node name="Dungeon_Table" instance=ExtResource("1_4qtcg")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="Table" index="0"]
+freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/RigidBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016937256, 0.94874, 0.00048828125)

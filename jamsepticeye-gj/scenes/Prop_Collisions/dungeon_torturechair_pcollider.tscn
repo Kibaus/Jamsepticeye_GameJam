@@ -8,6 +8,7 @@ size = Vector3(0.90649414, 1.4086914, 1.1414948)
 [node name="Dungeon_TortureChair" instance=ExtResource("1_7syre")]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="TortureChair" index="0"]
+freeze = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TortureChair/RigidBody3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70043945, -0.06661224)

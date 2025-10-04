@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dncheeietg615"]
+[gd_scene load_steps=14 format=3 uid="uid://dncheeietg615"]
 
 [ext_resource type="Material" uid="uid://8c76kywocjsl" path="res://Materials/DungeonWall_Color.tres" id="1_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://by3bdi2fa451q" path="res://Prefabs/Dungeon_WallPillar.glb" id="2_2r41h"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://by2u3ke6u0xxc" path="res://Prefabs/Dungeon_WallTorch.glb" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://dwkqesr33i72h" path="res://Prefabs/Dungeon_WallBG.glb" id="6_klq6b"]
 [ext_resource type="PackedScene" uid="uid://ilmtw2gjws7y" path="res://Prefabs/Dungeon_DoorWall.glb" id="7_b121j"]
+[ext_resource type="PackedScene" uid="uid://dbuq6wnp7rkpn" path="res://scenes/Prop_Collisions/dungeon_cage_pcollider.tscn" id="8_olg7q"]
+[ext_resource type="PackedScene" uid="uid://dqy55cc5bk05e" path="res://scenes/Prop_Collisions/dungeon_crate_pcollider.tscn" id="9_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://cyp66026e7a0x" path="res://scenes/Prop_Collisions/dungeon_table_pcollider.tscn" id="10_8iemx"]
 
 [sub_resource type="Environment" id="Environment_ppgk2"]
 ambient_light_source = 2
@@ -18,7 +21,7 @@ albedo_color = Color(0.17233449, 0.18400723, 0.3156101, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wic5t"]
 albedo_color = Color(0.21789971, 0.25054646, 0.303711, 1)
 
-[node name="Level" type="Node3D"]
+[node name="Level2" type="Node3D"]
 transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 0, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -1050,6 +1053,7 @@ transform = Transform3D(-3.3770693e-08, 0, -1, 0, 1, 0, 1, 0, -3.3770693e-08, 56
 
 [node name="Roof" type="Node3D" parent="visual_update"]
 transform = Transform3D(1.0000005, 0, 0, 0, 1.0000005, 0, 0, 0, 1.0000005, 4.9327987e-06, 5.972158, 0)
+visible = false
 
 [node name="Floor" parent="visual_update/Roof" instance=ExtResource("6_klq6b")]
 transform = Transform3D(2.834962, 0, 0, 0, -7.536472e-08, 1.7241424, 0, -1.7241424, -7.536472e-08, -19.697939, 0.06563245, 0.361608)
@@ -1455,3 +1459,368 @@ transform = Transform3D(-1.199577, 0, -0.031914964, 0, 1.2000016, 0, 0.031914964
 
 [node name="Dungeon_WallTorch10" parent="visual_update/LightingMount_Prefabs" instance=ExtResource("5_ppgk2")]
 transform = Transform3D(-1.199577, 0, -0.031914964, 0, 1.2000016, 0, 0.031914964, 0, -1.199577, 18.246824, 1.6399771, 15.108166)
+
+[node name="Props" type="Node3D" parent="visual_update"]
+
+[node name="Dungeon_Cage2" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.742283e-08, 0, 1.0000004, 0, -8.742283e-08, 0, -1.0000004, -11.717049, 1.0447838, 6.3841352)
+
+[node name="Dungeon_Cage3" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-4.371144e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -4.371144e-08, -11.717051, 1.0447841, 13.280689)
+
+[node name="Dungeon_Cage4" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.742285e-08, 0, 1.0000004, 0, -8.742285e-08, 0, -1.0000004, -8.268774, 1.0447841, 6.384136)
+
+[node name="Dungeon_Cage8" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.3113429e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.3113429e-07, -16.240856, 1.8311628, -7.408971)
+
+[node name="Dungeon_Cage9" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.3113429e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.3113429e-07, -16.240856, 1.831163, -0.5124162)
+
+[node name="Dungeon_Cage5" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-4.371145e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -4.371145e-08, -8.268776, 1.0447843, 13.280692)
+
+[node name="Dungeon_Cage6" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.742286e-08, 0, 1.0000004, 0, -8.742286e-08, 0, -1.0000004, -1.8970342, 1.0447843, 6.384137)
+
+[node name="Dungeon_Cage10" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.742286e-08, 0, 1.0000004, 0, -8.742286e-08, 0, -1.0000004, -8.268776, 1.0447843, -7.949739)
+
+[node name="Dungeon_Cage11" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.7422876e-08, 0, 1.0000004, 0, -8.7422876e-08, 0, -1.0000004, -1.8970346, 1.0447843, -7.949739)
+
+[node name="Dungeon_Cage12" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.0000004, 0, 8.742287e-08, 0, 1.0000004, 0, -8.742287e-08, 0, -1.0000004, 13.01746, 1.0447843, -7.9497395)
+
+[node name="Dungeon_Cage13" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(9.2725976e-08, 0.7071072, 0.7071072, 1.0000004, -4.371142e-08, -8.742291e-08, -3.090869e-08, 0.7071072, -0.7071072, 19.389206, 1.0447843, -7.9497414)
+
+[node name="Dungeon_Cage16" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(9.272599e-08, 0.7071073, 0.7071073, 1.0000004, -4.3711427e-08, -8.742293e-08, -3.090869e-08, 0.7071073, -0.7071073, -36.367405, 1.0447843, -7.949743)
+
+[node name="Dungeon_Cage17" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-0.96592647, -0.2588193, 8.444412e-08, -0.25881922, 0.965927, 2.2626732e-08, -8.742295e-08, 2.6774878e-22, -1.0000011, -36.921844, 0.4741907, -2.09915)
+
+[node name="Dungeon_Cage19" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(9.2726e-08, 0.70710737, 0.70710737, 1.0000004, -4.371143e-08, -8.742294e-08, -3.090869e-08, 0.70710737, -0.70710737, -36.36741, 1.0447843, 5.8433614)
+
+[node name="Dungeon_Cage20" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-0.9659266, -0.25881934, 8.4444125e-08, -0.25881925, 0.96592706, 2.2626734e-08, -8.7422954e-08, 2.677488e-22, -1.0000011, -36.92185, 0.47419077, 11.693955)
+
+[node name="Dungeon_Cage18" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-0.965927, -0.25881934, 8.929347e-08, -0.25000027, 0.93301433, 0.25881943, -0.06698746, 0.25000036, -0.9659273, -36.921864, 0.47419098, -4.8575373)
+
+[node name="Dungeon_Cage21" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(3.0908705e-08, -0.7071078, 0.70710766, 1.0000004, -4.371145e-08, -8.742299e-08, 9.272607e-08, 0.70710766, 0.7071078, -13.833003, 1.0447843, -20.996363)
+
+[node name="Dungeon_Cage22" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.2964499e-07, 1.131336e-08, 1.0000011, -0.25881934, 0.9659277, 2.2626748e-08, -0.9659272, -0.25881934, 1.2815565e-07, -19.683601, 0.47419107, -21.550804)
+
+[node name="Dungeon_Cage23" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(0.06698751, -0.25000045, 0.965928, -0.2500004, 0.93301505, 0.25881952, -0.9659277, -0.25881946, 1.3932635e-07, -16.92521, 0.47419134, -21.550821)
+
+[node name="Dungeon_Cage24" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.2964499e-07, 1.1313361e-08, 1.0000011, -0.25881934, 0.96592784, 2.262675e-08, -0.9659273, -0.25881934, 1.2815566e-07, 4.4543304, 0.47419113, -21.550806)
+
+[node name="Dungeon_Cage25" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(0.06698751, -0.25000045, 0.96592814, -0.25000042, 0.93301517, 0.25881952, -0.96592784, -0.2588195, 1.3932636e-07, 7.212722, 0.4741914, -21.550823)
+
+[node name="Dungeon_Cage14" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.0000004, 0, -7.350444e-14, 0, 1.0000004, 0, 7.350444e-14, 0, 1.0000004, 21.55329, 1.0447843, -13.598576)
+
+[node name="Dungeon_Cage15" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-9.2726e-08, -0.7071075, -0.70710737, 1.0000004, -4.371143e-08, -8.7422954e-08, 3.0908726e-08, -0.70710737, 0.7071075, 15.18154, 1.0447843, -13.598573)
+
+[node name="Dungeon_Cage7" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-4.3711456e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -4.3711456e-08, -1.8970358, 1.0447843, 13.280694)
+
+[node name="Dungeon_Crate" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -37.02016, 0.35455644, -12.892441)
+
+[node name="Dungeon_Crate2" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.8000001, 0, 0, 0, 0.8000001, 0, 0, 0, 0.8000001, -34.606037, 0.35455647, -12.892442)
+
+[node name="Dungeon_Crate13" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -34.89478, 0.3545565, 0.35682145)
+
+[node name="Dungeon_Crate14" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.80000025, 0, 0, 0, 0.80000025, 0, 0, 0, 0.80000025, -32.480656, 0.35455653, 0.35682067)
+
+[node name="Dungeon_Crate17" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-2.5691673e-08, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, -2.5691673e-08, -29.435379, 0.35455668, 13.733547)
+
+[node name="Dungeon_Crate18" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0, 0, 0.8000005, 0, 0.8000006, 0, -0.8000005, 0, 0, -29.435379, 0.3545567, 11.319421)
+
+[node name="Dungeon_Crate21" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, -23.094072, 0.35455692, 1.8684906)
+
+[node name="Dungeon_Crate22" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.9938324e-08, 0, -0.8000011, 0, 0.8000011, 0, 0.8000011, 0, -6.9938324e-08, -23.094072, 0.35455695, 4.2826166)
+
+[node name="Dungeon_Crate23" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, -16.467974, 0.35455707, -5.039202)
+
+[node name="Dungeon_Crate24" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.993836e-08, 0, -0.80000144, 0, 0.80000144, 0, 0.80000144, 0, -6.993836e-08, -16.467974, 0.3545571, -2.6250756)
+
+[node name="Dungeon_Cage26" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.3113429e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.3113429e-07, 37.08046, 1.831164, 4.2328215)
+
+[node name="Dungeon_Cage30" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.3113429e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.3113429e-07, 37.080463, 1.8311642, 7.999119)
+
+[node name="Dungeon_Cage31" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.0000004, 0, -1.7484572e-07, 0, 1.0000004, 0, 1.7484572e-07, 0, 1.0000004, 36.615982, 1.8311647, 12.087159)
+
+[node name="Dungeon_Cage32" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.0000004, 0, -1.7484572e-07, 0, 1.0000004, 0, 1.7484572e-07, 0, 1.0000004, 32.849686, 1.8311648, 12.087163)
+
+[node name="Dungeon_Cage27" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(3.090872e-08, -0.707108, 0.7071079, 1.0000004, -4.3711466e-08, -8.742302e-08, 9.27261e-08, 0.7071079, 0.707108, 28.099665, 1.0447843, -18.719727)
+
+[node name="Dungeon_Cage38" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-6.484876e-08, -0.9659274, -0.25881934, 1.0000008, -4.3711466e-08, -8.742303e-08, 7.31308e-08, -0.25881934, 0.9659274, 55.933117, 1.0447843, -15.974877)
+
+[node name="Dungeon_Cage40" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-9.727306e-08, -1.4488894, -0.3882286, 1.5000005, -6.556711e-08, -1.3113446e-07, 1.0969621e-07, -0.3882286, 1.4488894, 53.05626, 1.0447843, -13.697201)
+
+[node name="Dungeon_Cage41" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.39089e-07, -1.0606604, -1.0606602, 1.5000002, -6.556708e-08, -1.3113443e-07, 4.6363148e-08, -1.0606602, 1.0606604, 62.40318, 1.0447843, -11.58574)
+
+[node name="Dungeon_Cage42" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(6.5567086e-08, 1.500001, -3.3399164e-07, 1.500001, -6.5567136e-08, -1.3113451e-07, -1.3113458e-07, -3.3399164e-07, -1.500001, 49.710022, 1.0447843, 0.77674705)
+
+[node name="Dungeon_Cage44" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.8428727e-08, 1.4153215, -0.49685946, 1.5000014, -6.556714e-08, -1.311346e-07, -1.4545007e-07, -0.49685946, -1.4153215, 41.65292, 1.0447843, -2.8276262)
+
+[node name="Dungeon_Cage43" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-1.4478031, 0.39225718, 0.0023258326, 0.39225665, 1.4478047, -0.0006266625, -0.0024087536, 3.2887508e-06, -1.4999995, 43.82289, 1.0447843, 1.1563963)
+
+[node name="Dungeon_Cage37" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(-8.156681e-08, -0.86602724, -0.50000113, 1.0000004, -4.37115e-08, -8.7423054e-08, 5.3854816e-08, -0.50000113, 0.86602724, 24.376675, 1.0447843, -41.391544)
+
+[node name="Dungeon_Cage28" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.2964499e-07, 1.1313362e-08, 1.0000011, -0.25881934, 0.9659279, 2.2626752e-08, -0.9659274, -0.25881934, 1.2815568e-07, 25.97672, 0.4741912, -21.550808)
+
+[node name="Dungeon_Cage29" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(0.06698751, -0.25000045, 0.9659282, -0.25000045, 0.9330152, 0.25881952, -0.9659279, -0.25881952, 1.3932637e-07, 28.735111, 0.47419143, -21.550825)
+
+[node name="Dungeon_Cage33" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.2964499e-07, 1.13133645e-08, 1.0000011, -0.25881934, 0.9659282, 2.262676e-08, -0.9659277, -0.25881934, 1.2815569e-07, 30.70833, 0.47419134, -45.117733)
+
+[node name="Dungeon_Cage34" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(0.06698751, -0.25000045, 0.96592855, -0.25000045, 0.9330156, 0.25881952, -0.9659282, -0.25881952, 1.3932642e-07, 33.466724, 0.4741916, -45.117752)
+
+[node name="Dungeon_Cage35" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(1.2964499e-07, 1.1313365e-08, 1.0000011, -0.25881934, 0.9659283, 2.2626761e-08, -0.96592784, -0.25881934, 1.2815569e-07, -4.085354, 0.4741914, -45.117737)
+
+[node name="Dungeon_Cage36" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
+transform = Transform3D(0.06698751, -0.25000045, 0.9659286, -0.25000045, 0.93301564, 0.25881952, -0.9659283, -0.25881952, 1.3932643e-07, -1.326959, 0.47419164, -45.117756)
+
+[node name="Dungeon_Crate31" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 31.25926, 0.35455698, 1.8684909)
+
+[node name="Dungeon_Crate32" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.993834e-08, 0, -0.8000012, 0, 0.8000012, 0, 0.8000012, 0, -6.993834e-08, 31.25926, 0.354557, 4.2826176)
+
+[node name="Dungeon_Crate35" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.4915399e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.4915399e-07, 28.332956, 0.3545571, 12.826813)
+
+[node name="Dungeon_Crate37" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 31.259268, 0.35455704, -9.135188)
+
+[node name="Dungeon_Crate38" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.4915399e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.4915399e-07, 28.332956, 0.3545571, -11.064207)
+
+[node name="Dungeon_Crate39" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.0544257e-07, 0, 1.0000004, 0, -1.0544257e-07, 0, -1.0000004, 28.179018, 0.3545571, -7.9270062)
+
+[node name="Dungeon_Crate40" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286543e-07, 0, 1.0000004, 0, 1.9286543e-07, 0, 1.0000004, 30.848997, 0.35455722, -12.402642)
+
+[node name="Dungeon_Crate41" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 31.259272, 2.5738733, -9.135189)
+
+[node name="Dungeon_Crate42" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.49154e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.49154e-07, 28.33296, 2.5738735, -11.064208)
+
+[node name="Dungeon_Crate43" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.0544258e-07, 0, 1.0000004, 0, -1.0544258e-07, 0, -1.0000004, 28.17902, 2.5738735, -7.9270067)
+
+[node name="Dungeon_Crate44" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286544e-07, 0, 1.0000004, 0, 1.9286544e-07, 0, 1.0000004, 30.849, 2.5738735, -12.402644)
+
+[node name="Dungeon_Crate45" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 31.259274, 4.7670617, -9.13519)
+
+[node name="Dungeon_Crate46" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.4915402e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.4915402e-07, 28.332964, 4.7670617, -11.064209)
+
+[node name="Dungeon_Crate47" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.05442595e-07, 0, 1.0000004, 0, -1.05442595e-07, 0, -1.0000004, 28.179024, 4.7670617, -7.9270077)
+
+[node name="Dungeon_Crate75" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.0544258e-07, 0, 1.0000004, 0, -1.0544258e-07, 0, -1.0000004, 28.17902, 0.35455716, -4.4787307)
+
+[node name="Dungeon_Crate76" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.05442595e-07, 0, 1.0000004, 0, -1.05442595e-07, 0, -1.0000004, 28.179024, 2.5738738, -4.478731)
+
+[node name="Dungeon_Crate77" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.0544261e-07, 0, 1.0000004, 0, -1.0544261e-07, 0, -1.0000004, 28.179028, 4.767062, -4.478732)
+
+[node name="Dungeon_Crate48" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286546e-07, 0, 1.0000004, 0, 1.9286546e-07, 0, 1.0000004, 30.849003, 4.7670617, -12.402645)
+
+[node name="Dungeon_Crate51" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 2.5613658, 0.3545571, 7.711985)
+
+[node name="Dungeon_Crate62" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 16.947985, 0.3545572, 5.9036236)
+
+[node name="Dungeon_Crate52" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286546e-07, 0, 1.0000004, 0, 1.9286546e-07, 0, 1.0000004, 2.1510952, 0.35455728, 4.44453)
+
+[node name="Dungeon_Crate53" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286549e-07, 0, 1.0000004, 0, 1.9286549e-07, 0, 1.0000004, 2.1510985, 2.573874, 4.444529)
+
+[node name="Dungeon_Crate55" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286549e-07, 0, 1.0000004, 0, 1.9286549e-07, 0, 1.0000004, 8.734415, 0.3545573, 4.44453)
+
+[node name="Dungeon_Crate56" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.928655e-07, 0, 1.0000004, 0, 1.928655e-07, 0, 1.0000004, 8.734418, 2.5738742, 4.4445295)
+
+[node name="Dungeon_Crate58" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286551e-07, 0, 1.0000004, 0, 1.9286551e-07, 0, 1.0000004, 13.992224, 0.35455737, 5.9322844)
+
+[node name="Dungeon_Crate59" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286553e-07, 0, 1.0000004, 0, 1.9286553e-07, 0, 1.0000004, 13.992228, 2.5738747, 5.9322844)
+
+[node name="Dungeon_Crate60" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286553e-07, 0, 1.0000004, 0, 1.9286553e-07, 0, 1.0000004, 21.742865, 0.3545574, 5.932285)
+
+[node name="Dungeon_Crate61" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.9286554e-07, 0, 1.0000004, 0, 1.9286554e-07, 0, 1.0000004, 21.742868, 2.573875, 5.932285)
+
+[node name="Dungeon_Crate54" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.928655e-07, 0, 1.0000004, 0, 1.928655e-07, 0, 1.0000004, 2.1511018, 4.7670627, 4.444528)
+
+[node name="Dungeon_Crate36" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.3987673e-07, 0, 0.8000015, 0, 0.8000015, 0, -0.8000015, 0, 1.3987673e-07, 28.332956, 0.35455716, 10.412686)
+
+[node name="Dungeon_Crate33" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 37.02357, 0.3545572, -5.0392036)
+
+[node name="Dungeon_Crate34" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.993838e-08, 0, -0.8000016, 0, 0.8000016, 0, 0.8000016, 0, -6.993838e-08, 37.02357, 0.35455722, -2.6250763)
+
+[node name="Dungeon_Crate25" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, -17.029715, 0.35455716, 28.147747)
+
+[node name="Dungeon_Crate26" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.993837e-08, 0, -0.80000156, 0, 0.80000156, 0, 0.80000156, 0, -6.993837e-08, -17.029715, 0.3545572, 30.561874)
+
+[node name="Dungeon_Crate29" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, -1.8019733e-08, 0, 1.0000004, 0, 1.8019733e-08, 0, 1.0000004, -11.186482, 0.35455728, 34.18414)
+
+[node name="Dungeon_Crate30" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.80000186, 0, -3.496921e-08, 0, 0.80000186, 0, 3.496921e-08, 0, 0.80000186, -8.772358, 0.3545573, 34.18414)
+
+[node name="Dungeon_Crate27" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.173114e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -6.173114e-08, 7.4649386, 0.35455725, 23.628508)
+
+[node name="Dungeon_Crate28" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-6.9938395e-08, 0, -0.8000018, 0, 0.8000018, 0, 0.8000018, 0, -6.9938395e-08, 7.4649386, 0.35455728, 26.042635)
+
+[node name="Dungeon_Crate3" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, -36.218426, 0.35455656, -14.936792)
+
+[node name="Dungeon_Crate4" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, -37.150463, 2.4130883, -12.642982)
+
+[node name="Dungeon_Crate5" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -33.97238, 0.35455656, -19.113012)
+
+[node name="Dungeon_Crate6" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.80000037, 0, 0, 0, 0.80000037, 0, 0, 0, 0.80000037, -31.55825, 0.3545566, -19.113014)
+
+[node name="Dungeon_Crate7" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, -33.170643, 0.35455668, -21.157362)
+
+[node name="Dungeon_Crate8" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, -34.102673, 2.4130893, -18.86355)
+
+[node name="Dungeon_Crate49" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, 31.414585, 2.027088, 4.2630515)
+
+[node name="Dungeon_Crate50" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, 28.299644, 2.3860428, 12.873986)
+
+[node name="Dungeon_Crate72" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.0544263e-07, 0, 1.0000004, 0, -1.0544263e-07, 0, -1.0000004, 15.844245, 0.35455725, 9.099518)
+
+[node name="Dungeon_Crate73" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-0.80000174, 0, 1.0490759e-07, 0, 0.80000174, 0, -1.0490759e-07, 0, -0.80000174, 13.430117, 0.3545573, 9.099518)
+
+[node name="Dungeon_Crate74" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-2.1855708e-08, 0, 0.5000002, 0, 0.5000002, 0, -0.5000002, 0, -2.1855708e-08, 15.8914175, 2.3860438, 9.132831)
+
+[node name="Dungeon_Crate63" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.49154e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.49154e-07, 29.671577, 0.35455716, -29.17089)
+
+[node name="Dungeon_Crate64" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.3987675e-07, 0, 0.80000156, 0, 0.80000156, 0, -0.80000156, 0, 1.3987675e-07, 29.671577, 0.3545572, -31.58502)
+
+[node name="Dungeon_Crate65" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, 29.638264, 2.386043, -29.123718)
+
+[node name="Dungeon_Crate66" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.4915403e-07, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, 1.4915403e-07, -4.446366, 0.35455722, -33.058975)
+
+[node name="Dungeon_Crate67" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(1.3987678e-07, 0, 0.80000174, 0, 0.80000174, 0, -0.80000174, 0, 1.3987678e-07, -4.446366, 0.35455725, -35.473103)
+
+[node name="Dungeon_Crate68" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, -4.479679, 2.3860435, -33.011803)
+
+[node name="Dungeon_Crate69" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-1.0000004, 0, 1.05442666e-07, 0, 1.0000004, 0, -1.05442666e-07, 0, -1.0000004, 10.447028, 0.35455728, -41.63909)
+
+[node name="Dungeon_Crate70" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-0.8000021, 0, 1.0490764e-07, 0, 0.8000021, 0, -1.0490764e-07, 0, -0.8000021, 8.032907, 0.35455734, -41.63909)
+
+[node name="Dungeon_Crate71" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-2.1855707e-08, 0, 0.5000002, 0, 0.5000002, 0, -0.5000002, 0, -2.1855707e-08, 10.494203, 2.3860443, -41.605778)
+
+[node name="Dungeon_Crate57" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(0.5000002, 0, 0, 0, 0.5000002, 0, 0, 0, 0.5000002, 8.775208, 0.38869214, 1.7147279)
+
+[node name="Dungeon_Crate9" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-4.3711417e-08, 0, -1.0000004, 0, 1.0000004, 0, 1.0000004, 0, -4.3711417e-08, -28.643717, 0.3545566, -15.501646)
+
+[node name="Dungeon_Crate10" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-3.4969126e-08, 0, -0.80000037, 0, 0.80000037, 0, 0.80000037, 0, -3.4969126e-08, -28.643713, 0.3545566, -13.087516)
+
+[node name="Dungeon_Crate11" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-2.1855708e-08, 0, -0.5000002, 0, 0.5000002, 0, 0.5000002, 0, -2.1855708e-08, -26.599367, 0.35455668, -14.699908)
+
+[node name="Dungeon_Crate12" parent="visual_update/Props" instance=ExtResource("9_t1rx8")]
+transform = Transform3D(-2.1855708e-08, 0, -0.5000002, 0, 0.5000002, 0, 0.5000002, 0, -2.1855708e-08, -28.893175, 2.4130895, -15.631944)
+
+[node name="Dungeon_Table" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, -11.108492, 0, -2.2738914)
+
+[node name="Dungeon_Table3" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(0.5000002, -0.86602587, 0, 0.86602587, 0.5000002, 0, 0, 0, 1.0000004, 23.164608, 1.3314556, -2.2738926)
+
+[node name="Dungeon_Table5" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(-2.1855707e-08, 3.78552e-08, -1.0000004, 0.86602587, 0.5000002, 0, 0.5000002, -0.86602587, -4.371142e-08, -3.0857763, 1.3314561, -12.618724)
+
+[node name="Dungeon_Table6" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(-5.3280953e-08, -0.31674233, -0.9485127, -9.0552845e-08, -0.94851327, 0.31674218, -1.0000011, 1.027668e-07, 2.1855726e-08, -10.690412, 2.7781157, -19.968786)
+
+[node name="Dungeon_Table4" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(0.35355368, -0.61237305, 0.70710737, 0.86602587, 0.5000002, 0, -0.3535537, 0.6123731, 0.7071074, 21.56612, 1.3344225, -20.541065)
+
+[node name="Dungeon_Table2" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
+transform = Transform3D(-4.3711417e-08, 0, 1.0000004, 0, 1.0000004, 0, -1.0000004, 0, -4.3711417e-08, -29.490793, 0, -7.810083)
