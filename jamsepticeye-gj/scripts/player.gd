@@ -19,6 +19,7 @@ var currently_active : bool = true
 
 func _ready() -> void:
 	$MeshInstance3D.hide()
+	%GhostWall.hide()
 	Input.set_use_accumulated_input(false)
 
 func _input(event) -> void:
@@ -71,11 +72,13 @@ func _ghost_switch():
 	ghost.rotation = rotation
 	ghost.switch_to_ghost()
 	$MeshInstance3D.show()
+	%GhostWall.show()
 	currently_active = false
 
 func _return_to_player():
 	$CamPivot/Camera3D.current = true
 	$MeshInstance3D.hide()
+	%GhostWall.hide()
 	currently_active = true
 
 func interact():
