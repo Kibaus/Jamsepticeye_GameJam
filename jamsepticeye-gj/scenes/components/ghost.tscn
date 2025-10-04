@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://5dreldwpi40r"]
+[gd_scene load_steps=10 format=3 uid="uid://5dreldwpi40r"]
 
 [ext_resource type="Script" uid="uid://c82ni8qyf7x21" path="res://scripts/ghost.gd" id="1_ospkp"]
+[ext_resource type="Script" uid="uid://bu4secvt3bo2u" path="res://scenes/components/camera_overlay.gd" id="2_a44at"]
+[ext_resource type="Material" uid="uid://cj181dtn4uy2v" path="res://Materials/spatial/linear_depth.tres" id="3_8ycye"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h3cwf"]
 radius = 0.3
@@ -21,6 +23,10 @@ height = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3cwf"]
 albedo_color = Color(0.9552701, 0.41789043, 1.92523e-07, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_kxh78"]
+material = ExtResource("3_8ycye")
+size = Vector2(2, 2)
 
 [node name="Ghost" type="CharacterBody3D"]
 collision_layer = 0
@@ -47,5 +53,15 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CamPivot"]
+
+[node name="CameraOverlay" type="Node3D" parent="CamPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09656106)
+script = ExtResource("2_a44at")
+
+[node name="LinearDepthEffect" type="MeshInstance3D" parent="CamPivot/Camera3D/CameraOverlay"]
+transform = Transform3D(1, 0, 0, 0, 0.9999973, -0.0023038324, 0, 0.0023038324, 0.9999973, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_kxh78")
+skeleton = NodePath("../..")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]

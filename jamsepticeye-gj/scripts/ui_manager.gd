@@ -17,7 +17,7 @@ var previous_ui : UI = UI.none
 func _ready() -> void:
 	switch_ui(UI.main)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("pause_game"):
 			if current_ui != UI.main:
 				if current_ui == UI.ingame:

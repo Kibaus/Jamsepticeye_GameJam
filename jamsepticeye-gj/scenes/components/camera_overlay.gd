@@ -1,34 +1,19 @@
 extends Node3D
 
 @onready var canvas_overlay: Control = UIManager.canvas_overlay
-
 @onready var linear_depth_effect: MeshInstance3D = $LinearDepthEffect
-
-func _physics_process(delta: float) -> void:
-	if(Input.is_action_just_pressed("move_forward")):
-		#canvas_overlay._show_ripple_effect()
-		if(!is_linear_depth):
-			_linear_depth_tween(1)
-		is_linear_depth = true
-		#canvas_overlay._show_vignette_effect()
-
-		#show_linear_depth_effect()
-	if(Input.is_action_just_pressed("move_back")):
-		if(is_linear_depth):
-			_linear_depth_tween(0)
-		is_linear_depth = false
-		#canvas_overlay._hide_vignette_effect()
-
-		#canvas_overlay._hide_ripple_effect()
-		#hide_linear_depth_effect()
-	##if(Input.is_action_just_pressed("move_left")):
-		##canvas_overlay._show_vignette_effect()
-	##if(Input.is_action_just_pressed("move_right")):
-		##canvas_overlay._hide_vignette_effect()
-
 
 var show_linear_depth_tween: Tween = null
 var is_linear_depth = false
+
+func _process(_delta: float) -> void:
+	if(Input.is_action_just_pressed("ghost_switch")):
+		if(is_linear_depth):
+			_linear_depth_tween(0)
+			is_linear_depth = false
+		else:
+			_linear_depth_tween(1)
+			is_linear_depth = true
 
 func _linear_depth_tween(p_target_value: float, duration: float = 0.3) -> void:
 

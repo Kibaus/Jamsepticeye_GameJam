@@ -9,7 +9,3 @@ func _ready() -> void:
 	
 	AudioManager.set_background_music_volume(0)
 	first_load = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

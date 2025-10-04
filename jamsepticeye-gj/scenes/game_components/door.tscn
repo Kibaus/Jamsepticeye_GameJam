@@ -28,9 +28,11 @@ transform = Transform3D(-3.059797e-08, 0, 0.7, 0, 0.7, 0, -0.7, 0, -3.059797e-08
 [node name="Symbol1" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true
 transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, 0.035247892, 0.4887117, 0.000218153)
+alpha_cut = 3
 texture = ExtResource("2_ps6of")
 
 [node name="Symbol2" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true
 transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, -0.043056726, 0.49537694, 0.000218153)
+alpha_cut = 3
 texture = ExtResource("2_ps6of")

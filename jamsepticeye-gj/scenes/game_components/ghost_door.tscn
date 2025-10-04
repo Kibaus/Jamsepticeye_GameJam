@@ -28,9 +28,11 @@ shape = SubResource("BoxShape3D_5f452")
 [node name="Symbol1" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true
 transform = Transform3D(-1.3769087e-08, 0, 0.315, 0, 0.315, 0, -0.315, 0, -1.3769087e-08, 0.11094737, 1.0742112, 0.000218153)
+alpha_cut = 3
 texture = ExtResource("2_td7ro")
 
 [node name="Symbol2" type="Sprite3D" parent="Moveable"]
 unique_name_in_owner = true
 transform = Transform3D(-1.3769087e-08, 0, 0.315, 0, 0.315, 0, -0.315, 0, -1.3769087e-08, -0.10414159, 1.0558344, 0.000218153)
+alpha_cut = 3
 texture = ExtResource("2_td7ro")
