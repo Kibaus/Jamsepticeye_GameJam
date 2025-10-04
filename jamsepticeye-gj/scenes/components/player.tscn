@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bi1fcsxwupdxd"]
+[gd_scene load_steps=11 format=3 uid="uid://bi1fcsxwupdxd"]
 
 [ext_resource type="Script" uid="uid://dm5h47oxmhnrp" path="res://scripts/player.gd" id="1_6mmc7"]
 [ext_resource type="PackedScene" uid="uid://5dreldwpi40r" path="res://scenes/components/ghost.tscn" id="2_h3cwf"]
+[ext_resource type="Script" uid="uid://bu4secvt3bo2u" path="res://scenes/components/camera_overlay.gd" id="3_acvb7"]
+[ext_resource type="Material" uid="uid://cj181dtn4uy2v" path="res://Materials/spatial/linear_depth.tres" id="3_sjsxr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_h3cwf"]
 radius = 0.3
@@ -18,6 +20,12 @@ height = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3cwf"]
 albedo_color = Color(0.9552701, 0.41789043, 1.92523e-07, 1)
+
+[sub_resource type="Environment" id="Environment_acvb7"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h3cwf"]
+material = ExtResource("3_sjsxr")
+size = Vector2(2, 2)
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 0
@@ -44,5 +52,16 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CamPivot"]
+environment = SubResource("Environment_acvb7")
+
+[node name="CameraOverlay" type="Node3D" parent="CamPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09656106)
+script = ExtResource("3_acvb7")
+
+[node name="LinearDepthEffect" type="MeshInstance3D" parent="CamPivot/Camera3D/CameraOverlay"]
+transform = Transform3D(1, 0, 0, 0, 0.9999973, -0.0023038324, 0, 0.0023038324, 0.9999973, 0, 0, 0)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_h3cwf")
+skeleton = NodePath("../..")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
