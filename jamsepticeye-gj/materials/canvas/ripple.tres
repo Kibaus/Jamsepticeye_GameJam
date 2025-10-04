@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://lsk3sblumwkb"]
+
+[ext_resource type="Shader" uid="uid://dum7vo4toww7b" path="res://Materials/shaders/ripple_canvas.gdshader" id="1_72liw"]
+
+[resource]
+shader = ExtResource("1_72liw")
+shader_parameter/wave_count = 5.0
+shader_parameter/speed = 4.0
+shader_parameter/height = 0.030000001425

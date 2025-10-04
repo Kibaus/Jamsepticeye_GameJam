@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dej2888vlmdd8"]
+[gd_scene load_steps=11 format=3 uid="uid://dej2888vlmdd8"]
 
 [ext_resource type="Script" uid="uid://ct2pb3ccvpyit" path="res://scripts/ui_manager.gd" id="1_ixhu3"]
+[ext_resource type="Script" uid="uid://c0ixa2n2lknay" path="res://scripts/canvas_overlay.gd" id="2_etoot"]
 [ext_resource type="PackedScene" uid="uid://dfma1x4vpjig2" path="res://scenes/components/ui_main.tscn" id="2_gl862"]
+[ext_resource type="Material" uid="uid://lsk3sblumwkb" path="res://Materials/canvas/ripple.tres" id="3_fnrs7"]
 [ext_resource type="PackedScene" uid="uid://dsmv4yrsau6xy" path="res://scenes/components/ui_pause.tscn" id="3_hst8a"]
+[ext_resource type="Material" uid="uid://lbjmnhp7fy0f" path="res://Materials/canvas/vignette.tres" id="4_13u4i"]
 [ext_resource type="PackedScene" uid="uid://bf5knpqguv2r1" path="res://scenes/components/ui_options.tscn" id="4_tanoa"]
+[ext_resource type="Material" uid="uid://lw2edqflwthp" path="res://Materials/canvas/fish_eye.tres" id="5_eutd8"]
 [ext_resource type="PackedScene" uid="uid://s7ma42yxvhwv" path="res://scenes/components/ui_ingame.tscn" id="5_jo33p"]
 
 [sub_resource type="Theme" id="Theme_0wfyh"]
@@ -21,6 +25,51 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_0wfyh")
 script = ExtResource("1_ixhu3")
+
+[node name="CanvasOverlay" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_etoot")
+
+[node name="RippleEffect" type="ColorRect" parent="CanvasOverlay"]
+visible = false
+z_index = -1
+material = ExtResource("3_fnrs7")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.23921569)
+
+[node name="VignetteEffect" type="ColorRect" parent="CanvasOverlay"]
+visible = false
+z_index = -1
+material = ExtResource("4_13u4i")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.23921569)
+
+[node name="FishEyeEffect" type="ColorRect" parent="CanvasOverlay"]
+visible = false
+z_index = -1
+material = ExtResource("5_eutd8")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.23921569)
 
 [node name="ui_main" parent="." instance=ExtResource("2_gl862")]
 visible = false

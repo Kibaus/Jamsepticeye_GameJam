@@ -11,6 +11,8 @@ enum UI {
 var current_ui : UI = UI.none
 var previous_ui : UI = UI.none
 
+@onready var canvas_overlay: Control = $CanvasOverlay
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	switch_ui(UI.main)
