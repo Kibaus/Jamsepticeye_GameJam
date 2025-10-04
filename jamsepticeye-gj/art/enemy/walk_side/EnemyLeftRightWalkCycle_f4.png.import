@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyy2cso8jwr2c"
-path.s3tc="res://.godot/imported/EnemyLeftRightWalkCycle_f5.png-0638668e9ac82c277bfe72b0751faf24.s3tc.ctex"
+uid="uid://bkr6kel44466a"
+path.s3tc="res://.godot/imported/EnemyLeftRightWalkCycle_f4.png-ca865909b53c33f4179f3848936d1236.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://art/enemy/walk/EnemyLeftRightWalkCycle_f5.png"
-dest_files=["res://.godot/imported/EnemyLeftRightWalkCycle_f5.png-0638668e9ac82c277bfe72b0751faf24.s3tc.ctex"]
+source_file="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f4.png"
+dest_files=["res://.godot/imported/EnemyLeftRightWalkCycle_f4.png-ca865909b53c33f4179f3848936d1236.s3tc.ctex"]
 
 [params]
 
