@@ -16,11 +16,13 @@ func _process(_delta: float) -> void:
 			is_linear_depth = true
 
 func _linear_depth_tween(p_target_value: float, duration: float = 0.3) -> void:
+	if(p_target_value == 1):
+		linear_depth_effect.visible = true
 
 	if show_linear_depth_tween != null and show_linear_depth_tween.is_valid():
 		canvas_overlay._hide_ripple_effect()
 		show_linear_depth_tween.kill()
-		
+	
 	canvas_overlay._show_ripple_effect()
 	var mat = linear_depth_effect.get_active_material(0)
 	
@@ -28,3 +30,5 @@ func _linear_depth_tween(p_target_value: float, duration: float = 0.3) -> void:
 	show_linear_depth_tween.tween_property(mat, "shader_parameter/mix_factor", p_target_value, duration)
 	await show_linear_depth_tween.finished
 	canvas_overlay._hide_ripple_effect()
+	if(p_target_value == 0):
+		linear_depth_effect.visible = false
