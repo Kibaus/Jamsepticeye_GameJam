@@ -21,7 +21,3 @@ size = Vector3(6.5, 3.5, 7.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4)
 operation = 2
 size = Vector3(2, 3, 0.5)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.75, 0)
-shadow_enabled = true
