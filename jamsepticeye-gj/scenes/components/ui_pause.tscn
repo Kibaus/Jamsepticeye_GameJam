@@ -21,8 +21,22 @@ offset_top = 24.0
 offset_right = 20.0
 offset_bottom = 55.000015
 grow_horizontal = 2
-text = "GAME TITLE
---Paused--"
+theme_override_font_sizes/font_size = 80
+text = "Matriphagy"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.5
+offset_top = 140.0
+offset_right = 44.5
+offset_bottom = 189.00005
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "--Paused--"
 horizontal_alignment = 1
 
 [node name="MenuButtons" type="VBoxContainer" parent="."]
