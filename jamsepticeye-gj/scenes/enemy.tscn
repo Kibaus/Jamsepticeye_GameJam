@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://uay783v8jlm2"]
+[gd_scene load_steps=34 format=3 uid="uid://uay783v8jlm2"]
 
 [ext_resource type="Script" uid="uid://dd1kcbg27n7vs" path="res://scripts/enemy.gd" id="1_ipns3"]
 [ext_resource type="Texture2D" uid="uid://mhine1ldd25x" path="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f1.png" id="1_md484"]
@@ -14,15 +14,23 @@
 [ext_resource type="Texture2D" uid="uid://dcuj4s4p3a0tm" path="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f6.png" id="6_wtq4b"]
 [ext_resource type="Texture2D" uid="uid://b0hicwov1pk4p" path="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f7.png" id="7_j0cyh"]
 [ext_resource type="Texture2D" uid="uid://dxygt1t71opu7" path="res://art/enemy/attack/EnemyAttack_f6.png" id="7_qaulx"]
+[ext_resource type="Texture2D" uid="uid://bw4uug4uddboh" path="res://art/enemy/walk_away/EnemyWalkAway_f1.png" id="8_0lg75"]
 [ext_resource type="Texture2D" uid="uid://cmep6f6db04ew" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f1.png" id="8_1f82d"]
 [ext_resource type="Texture2D" uid="uid://c8piyk1l5dvjq" path="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f8.png" id="8_g0wcc"]
 [ext_resource type="Texture2D" uid="uid://bns5dx7rram7u" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f2.png" id="9_lioqc"]
+[ext_resource type="Texture2D" uid="uid://c2higm7d764rg" path="res://art/enemy/walk_away/EnemyWalkAway_f2.png" id="9_lsnsy"]
 [ext_resource type="Texture2D" uid="uid://cn5kx65ar21bw" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f3.png" id="10_0lg75"]
+[ext_resource type="Texture2D" uid="uid://de61b45vnd3jb" path="res://art/enemy/walk_away/EnemyWalkAway_f3.png" id="10_thsr5"]
+[ext_resource type="Texture2D" uid="uid://d4p3demlxlcu" path="res://art/enemy/walk_away/EnemyWalkAway_f4.png" id="11_ekh6n"]
 [ext_resource type="Texture2D" uid="uid://c7nrjm836l1qc" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f4.png" id="11_lsnsy"]
+[ext_resource type="Texture2D" uid="uid://bb3ewro30vubl" path="res://art/enemy/walk_away/EnemyWalkAway_f5.png" id="12_2sbpf"]
 [ext_resource type="Texture2D" uid="uid://c8uu06m6t6d7d" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f5.png" id="12_thsr5"]
+[ext_resource type="Texture2D" uid="uid://bsupfh3qi0sps" path="res://art/enemy/walk_away/EnemyWalkAway_f6.png" id="13_78kod"]
 [ext_resource type="Texture2D" uid="uid://dx0hu8fxtu2vx" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f6.png" id="13_ekh6n"]
 [ext_resource type="Texture2D" uid="uid://drruhijl1wi35" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f7.png" id="14_2sbpf"]
+[ext_resource type="Texture2D" uid="uid://dhvxom86wvl54" path="res://art/enemy/walk_away/EnemyWalkAway_f7.png" id="14_605iw"]
 [ext_resource type="Texture2D" uid="uid://btlqvt2215xng" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f8.png" id="15_78kod"]
+[ext_resource type="Texture2D" uid="uid://fj8nci8tixi3" path="res://art/enemy/walk_away/EnemyWalkAway_f8.png" id="15_x6q4o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s1ycm"]
 radius = 0.25
@@ -51,6 +59,35 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_0lg75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lsnsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_thsr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ekh6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_2sbpf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_78kod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_605iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_x6q4o")
+}],
+"loop": true,
+"name": &"walk_away",
 "speed": 5.0
 }, {
 "frames": [{
@@ -113,6 +150,8 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 7
 script = ExtResource("1_ipns3")
 movement_speed = 2.0
 
@@ -125,12 +164,31 @@ radius = 0.25
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_s1ycm")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+[node name="AnimSprite" type="AnimatedSprite3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 1.0334549, 0)
 billboard = 2
+shaded = true
 alpha_cut = 3
 sprite_frames = SubResource("SpriteFrames_bhx41")
-animation = &"attack"
+animation = &"walk_away"
 autoplay = "walk_forward"
-frame = 1
-frame_progress = 0.5731944
+
+[node name="SightTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="WanderTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+autostart = true
+
+[node name="AlertedTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
+[connection signal="timeout" from="SightTimer" to="." method="_on_sight_timer_timeout"]
+[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="AlertedTimer" to="." method="_on_alerted_timer_timeout"]

@@ -20,6 +20,8 @@ func to_bottom(animate : bool = true):
 
 func use():
 	pressed.emit()
+	var forward = basis.z
+	Core.current_enemy.alerted_at(position + forward)
 
 func setup_symbols(texture_a,texture_b):
 	%Symbol1.texture = texture_a

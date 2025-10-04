@@ -41,6 +41,7 @@ func _setup_doors():
 			door.close(false)
 		for door in b_doors:
 			door.open(false)
+			
 
 func _setup_switches():
 	if current_abstate == ABState.A:

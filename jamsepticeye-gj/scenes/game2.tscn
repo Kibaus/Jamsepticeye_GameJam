@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b3hbnq2txfjwg"]
+[gd_scene load_steps=18 format=3 uid="uid://b3hbnq2txfjwg"]
 
 [ext_resource type="Script" uid="uid://317eykhdk4xp" path="res://scripts/game_scripts/door_manager.gd" id="1_2eeft"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_v4v8k"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ciyuekve8fo0a" path="res://art/symbols/ice.png" id="10_1hpkv"]
 [ext_resource type="Texture2D" uid="uid://d0ma0tlwura4q" path="res://art/symbols/life.png" id="11_yam7v"]
 [ext_resource type="Texture2D" uid="uid://ceypind6xwrr2" path="res://art/symbols/death.png" id="12_gokrx"]
+[ext_resource type="Script" uid="uid://ce5thr27eekpw" path="res://scripts/unhide_on_ready.gd" id="15_5kdtj"]
 [ext_resource type="PackedScene" uid="uid://uay783v8jlm2" path="res://scenes/enemy.tscn" id="15_erv2c"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_q7h7c"]
@@ -23,6 +24,9 @@ agent_height = 1.0
 agent_radius = 0.25
 
 [node name="Game" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("9_lv1cq")]
+transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -2.9649057, 0, 3.979638)
 
 [node name="DoorSets" type="Node" parent="."]
 
@@ -94,9 +98,6 @@ transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 4.1, 0.25, -1.5)
 [node name="Switch3" parent="DoorSets/DoorSetD" instance=ExtResource("8_gokrx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 1, -4)
 
-[node name="Player" parent="." instance=ExtResource("9_lv1cq")]
-transform = Transform3D(7.54979e-08, 0, 1, 0, 1, 0, -1, 0, 7.54979e-08, -2.9649057, 0, 3.979638)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_q7h7c")
 
@@ -119,9 +120,9 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
 visible = true
 
 [node name="Roof" parent="NavigationRegion3D/Level/visual_update" index="2"]
-visible = true
+script = ExtResource("15_5kdtj")
 
 [node name="Enemy" parent="." instance=ExtResource("15_erv2c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 3.875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2, 0, 4.4)
 
 [editable path="NavigationRegion3D/Level"]
