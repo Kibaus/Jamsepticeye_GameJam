@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://uay783v8jlm2"]
+
+[ext_resource type="Script" uid="uid://dd1kcbg27n7vs" path="res://scripts/enemy.gd" id="1_ipns3"]
+[ext_resource type="Texture2D" uid="uid://mhine1ldd25x" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f1.png" id="1_md484"]
+[ext_resource type="Texture2D" uid="uid://hmopg3c3yc3i" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f2.png" id="2_ipns3"]
+[ext_resource type="Texture2D" uid="uid://bbssb0okumrxe" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f3.png" id="3_8qclf"]
+[ext_resource type="Texture2D" uid="uid://bkr6kel44466a" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f4.png" id="4_w8i8w"]
+[ext_resource type="Texture2D" uid="uid://cyy2cso8jwr2c" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f5.png" id="5_otmr2"]
+[ext_resource type="Texture2D" uid="uid://dcuj4s4p3a0tm" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f6.png" id="6_wtq4b"]
+[ext_resource type="Texture2D" uid="uid://b0hicwov1pk4p" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f7.png" id="7_j0cyh"]
+[ext_resource type="Texture2D" uid="uid://c8piyk1l5dvjq" path="res://art/enemy/walk/EnemyLeftRightWalkCycle_f8.png" id="8_g0wcc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s1ycm"]
+radius = 0.25
+height = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhx41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_md484")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ipns3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8qclf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w8i8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_otmr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wtq4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j0cyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g0wcc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_ipns3")
+movement_speed = 2.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.4
+avoidance_enabled = true
+radius = 0.25
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_s1ycm")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.12, 0, 0, 0, 0.12, 0, 0, 0, 0.12, 0, 1.0334549, 0)
+billboard = 2
+alpha_cut = 3
+sprite_frames = SubResource("SpriteFrames_bhx41")
+autoplay = "default"
+frame = 6
+frame_progress = 0.8805164
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-0.12, 0, -1.0490733e-08, 0, 0.12, 0, 1.0490733e-08, 0, -0.12, 0, 0.5, 0)
+billboard = 2
+alpha_cut = 3
+text = "Where you going bro?"
+font_size = 352

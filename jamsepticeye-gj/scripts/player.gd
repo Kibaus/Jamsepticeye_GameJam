@@ -18,6 +18,7 @@ var target_velocity = Vector3.ZERO
 var currently_active : bool = true
 
 func _ready() -> void:
+	Core.Set_active_player(self)
 	$MeshInstance3D.hide()
 	%GhostWall.hide()
 	Input.set_use_accumulated_input(false)

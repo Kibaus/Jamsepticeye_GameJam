@@ -77,3 +77,4 @@ ghost_switch={
 3d_physics/layer_2="door"
 3d_physics/layer_3="ghost_door"
 3d_physics/layer_4="switch"
+3d_physics/layer_5="ghost_wall"
