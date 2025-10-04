@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dncheeietg615"]
+[gd_scene load_steps=12 format=3 uid="uid://clfwmm61q55ye"]
 
-[ext_resource type="Material" uid="uid://8c76kywocjsl" path="res://Materials/DungeonWall_Color.tres" id="1_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://by3bdi2fa451q" path="res://Prefabs/Dungeon_WallPillar.glb" id="2_2r41h"]
-[ext_resource type="PackedScene" uid="uid://br41ag8tiywo0" path="res://Prefabs/Dungeon_DoorFrame.glb" id="4_b121j"]
-[ext_resource type="PackedScene" uid="uid://dh2paf7fk7fah" path="res://scenes/dungeon_wall.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://br41ag8tiywo0" path="res://Prefabs/Dungeon_DoorFrame.glb" id="1_5h6hl"]
+[ext_resource type="PackedScene" uid="uid://by3bdi2fa451q" path="res://Prefabs/Dungeon_WallPillar.glb" id="1_fixx2"]
+[ext_resource type="Material" uid="uid://8c76kywocjsl" path="res://Materials/DungeonWall_Color.tres" id="1_tpt3i"]
+[ext_resource type="PackedScene" uid="uid://jtl70ydxfkxb" path="res://Prefabs/Dungeon_Wall.glb" id="2_5h6hl"]
+[ext_resource type="PackedScene" uid="uid://cqgkjpa2vjsks" path="res://Prefabs/Dungeon_GateDoor.glb" id="4_wic5t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tpt3i"]
 albedo_color = Color(0.17233449, 0.18400723, 0.3156101, 1)
@@ -23,22 +24,16 @@ albedo_color = Color(0.2660402, 0.1787613, 1, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aayvh"]
 albedo_color = Color(1.1310726e-06, 0.63421637, 9.62615e-07, 1)
 
-[node name="Level" type="Node3D"]
-transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, 0, 0, 0)
+[node name="Visual" type="Node"]
 
 [node name="Environment" type="CSGCombiner3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 0)
-material_override = ExtResource("1_ppgk2")
+material_override = ExtResource("1_tpt3i")
 use_collision = true
-
-[node name="Roof" type="CSGBox3D" parent="Environment"]
-transform = Transform3D(1.0000004, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000004, 23.9494, 6.2050743, -3.9589865)
-material_override = ExtResource("1_ppgk2")
-size = Vector3(80.25, 0.060791016, 89)
 
 [node name="Floor" type="CSGBox3D" parent="Environment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.49408, 0.08529124, -3.9794922)
-material_override = ExtResource("1_ppgk2")
+material_override = ExtResource("1_tpt3i")
 size = Vector3(79, 0.060791016, 40)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Environment"]
@@ -185,202 +180,228 @@ size = Vector3(1, 6, 0.546)
 transform = Transform3D(-4.371139e-08, 0, -60.259125, 0, 1, 0, 1, 0, -2.6340101e-06, 16.06567, 3.1661692, 40.031563)
 size = Vector3(1, 6, 0.553)
 
-[node name="Doors" type="Node3D" parent="."]
+[node name="Doors" type="Node" parent="."]
 
 [node name="DoorCA" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -13.38504, 1.6143091, 9.812071)
-visible = false
 material_override = SubResource("StandardMaterial3D_ag826")
 size = Vector3(1.2250977, 0.77783203, 0.47299194)
 
 [node name="DoorOA" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.6408973, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -25.807005, 1.4223603, -17.372898)
-visible = false
 material_override = SubResource("StandardMaterial3D_ag826")
 size = Vector3(1, 0.6796875, 0.47395325)
 
 [node name="DoorCB" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -25.497618, 1.3949859, -3.7690597)
-visible = false
 material_override = SubResource("StandardMaterial3D_fixx2")
 size = Vector3(1.2741699, 0.6425781, 0.4789009)
 
 [node name="DoorOB" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 10.300168, 1.3949859, -17.389011)
-visible = false
 material_override = SubResource("StandardMaterial3D_fixx2")
 size = Vector3(1.2741699, 0.6425781, 0.48582935)
 
 [node name="DoorOD" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 10.300168, 1.3949859, -3.766706)
-visible = false
 material_override = SubResource("StandardMaterial3D_5h6hl")
 size = Vector3(1.2741699, 0.6425781, 0.48203468)
 
 [node name="DoorCD" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 39.792877, 1.3949859, -20.924402)
-visible = false
 material_override = SubResource("StandardMaterial3D_5h6hl")
 size = Vector3(1.2741699, 0.6425781, 0.47629738)
 
 [node name="DoorCC" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, 0.048074365, 1.6708909, -3.676495)
-visible = false
 material_override = SubResource("StandardMaterial3D_aayvh")
 size = Vector3(1.1876221, 0.8067627, 0.4873352)
 
 [node name="DoorOC" type="CSGBox3D" parent="Doors"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -25.467337, 1.4223603, 9.755863)
-visible = false
 material_override = SubResource("StandardMaterial3D_aayvh")
 size = Vector3(1.1876221, 0.6796875, 0.63049316)
 
-[node name="Levers" type="Node3D" parent="."]
+[node name="Levers" type="Node" parent="."]
 
 [node name="LeverA" type="CSGBox3D" parent="Levers"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -27.192335, 1.3949859, 1.0587953)
-visible = false
 material_override = SubResource("StandardMaterial3D_ag826")
 size = Vector3(1.1333008, 0.6425781, 0.26202393)
 
 [node name="LeverB" type="CSGBox3D" parent="Levers"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -27.192335, 1.3949859, 4.9239254)
-visible = false
 material_override = SubResource("StandardMaterial3D_fixx2")
 size = Vector3(1.1333008, 0.6425781, 0.26202393)
 
 [node name="LeverC" type="CSGBox3D" parent="Levers"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -29.362358, 1.4223603, -23.063732)
-visible = false
 material_override = SubResource("StandardMaterial3D_aayvh")
 size = Vector3(1.7073059, 0.6796875, 0.14727783)
 
 [node name="LeverD" type="CSGBox3D" parent="Levers"]
 transform = Transform3D(1.1965497, 0, 0, 0, 3.911552, 0, 0, 0, 6.6133447, -4.8088555, 1.3949859, -8.854521)
-visible = false
 material_override = SubResource("StandardMaterial3D_5h6hl")
 size = Vector3(1.6848145, 0.6425781, 0.2103653)
 
-[node name="Dungeon_Env" type="Node3D" parent="."]
+[node name="Dungeon_Env" type="Node" parent="."]
 
-[node name="Dungeon_WallPillar" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, 15.545013)
 
-[node name="Dungeon_WallPillar4" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar4" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, 15.545013)
 
-[node name="Dungeon_WallPillar2" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar2" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, 3.645013)
 
-[node name="Dungeon_WallPillar3" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar3" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, 1.945013)
 
-[node name="Dungeon_WallPillar5" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar5" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, 3.645013)
 
-[node name="Dungeon_WallPillar13" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar13" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.111701965, 0, 15.545013)
 
-[node name="Dungeon_WallPillar14" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar14" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -13.4882965, 0, 15.545013)
 
-[node name="Dungeon_WallPillar15" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar15" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.111701965, 0, 3.645013)
 
-[node name="Dungeon_WallPillar16" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar16" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -13.4882965, 0, 3.645013)
 
-[node name="Dungeon_WallPillar17" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar17" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.111701965, 0, 1.945013)
 
-[node name="Dungeon_WallPillar18" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar18" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -13.4882965, 0, 1.945013)
 
-[node name="Dungeon_WallPillar19" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar19" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0.111701965, 0, -9.954988)
 
-[node name="Dungeon_WallPillar20" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar20" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -13.4882965, 0, -9.954988)
 
-[node name="Dungeon_WallPillar21" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar21" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 23.911703, 0, 1.945013)
 
-[node name="Dungeon_WallPillar22" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar22" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.311705, 0, 1.945013)
 
-[node name="Dungeon_WallPillar23" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar23" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 23.911703, 0, -9.954988)
 
-[node name="Dungeon_WallPillar24" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar24" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.311705, 0, -9.954988)
 
-[node name="Dungeon_WallPillar25" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar25" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 23.911703, 0, -11.654987)
 
-[node name="Dungeon_WallPillar26" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar26" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.311705, 0, -11.654987)
 
-[node name="Dungeon_WallPillar27" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar27" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 23.911703, 0, -23.554989)
 
-[node name="Dungeon_WallPillar28" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar28" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 10.311705, 0, -23.554989)
 
-[node name="Dungeon_WallPillar6" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar6" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, 1.945013)
 
-[node name="Dungeon_WallPillar7" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar7" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, -9.954988)
 
-[node name="Dungeon_WallPillar8" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar8" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, -9.954988)
 
-[node name="Dungeon_WallPillar9" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar9" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, -11.654987)
 
-[node name="Dungeon_WallPillar10" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar10" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, -11.654987)
 
-[node name="Dungeon_WallPillar11" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar11" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -25.388298, 0, -23.554989)
 
-[node name="Dungeon_WallPillar12" parent="Dungeon_Env" instance=ExtResource("2_2r41h")]
+[node name="Dungeon_WallPillar12" parent="Dungeon_Env" instance=ExtResource("1_fixx2")]
 transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -38.988297, 0, -23.554989)
 
-[node name="Dungeon_Corridor" type="Node3D" parent="."]
+[node name="Dungeon_Wall" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32.300274, 0, 9.825563)
 
-[node name="Dungeon_DoorFrame3" parent="Dungeon_Corridor" instance=ExtResource("4_b121j")]
+[node name="Dungeon_Wall4" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(2.229281e-07, 0, -1.7, 0, 1.7, 0, 1.7, 0, 2.229281e-07, -6.670578, 0, 9.8255625)
+
+[node name="Dungeon_Wall5" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.4309376e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.4309376e-08, -6.67058, 0, -3.774438)
+
+[node name="Dungeon_Wall6" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.430935e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430935e-08, 17.129421, 0, -17.37444)
+
+[node name="Dungeon_Wall7" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.430935e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430935e-08, 17.129421, 0, -3.7744389)
+
+[node name="Dungeon_Wall2" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32.300274, 0, -3.7744372)
+
+[node name="Dungeon_Wall3" parent="Dungeon_Env" instance=ExtResource("2_5h6hl")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32.300274, 0, -17.374437)
+
+[node name="Dungeon_Corridor" type="Node" parent="."]
+
+[node name="Dungeon_DoorFrame3" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
 transform = Transform3D(1.6481333, 0, 0, 0, 1.7, 0, 0, 0, 5.8957725, -2.4596229, 0, -24.221975)
 
-[node name="Dungeon_DoorFrame4" parent="Dungeon_Corridor" instance=ExtResource("4_b121j")]
+[node name="Dungeon_DoorFrame4" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
 transform = Transform3D(1.6481333, 0, 0, 0, 1.7, 0, 0, 0, 5.8957725, 31.915228, 0, -24.221975)
 
-[node name="Dungeon_DoorFrame5" parent="Dungeon_Corridor" instance=ExtResource("4_b121j")]
+[node name="Dungeon_DoorFrame5" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
 transform = Transform3D(-7.204219e-08, 0, -5.8957725, 0, 1.7, 0, 1.6481333, 0, -2.577124e-07, 40.07259, 0, -20.96299)
 
-[node name="Dungeon_DoorFrame6" parent="Dungeon_Corridor" instance=ExtResource("4_b121j")]
+[node name="Dungeon_DoorFrame6" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
 transform = Transform3D(1.6481333, 0, 0, 0, 1.7, 0, 0, 0, 5.8957725, 5.5450954, 0, 16.325087)
 
-[node name="Dungeon_DoorFrame7" parent="Dungeon_Corridor" instance=ExtResource("4_b121j")]
+[node name="Dungeon_DoorFrame7" parent="Dungeon_Corridor" instance=ExtResource("1_5h6hl")]
 transform = Transform3D(1.6481333, 0, 0, 0, 1.7, 0, 0, 0, 5.8957725, -19.187433, 0, 16.325087)
 
-[node name="Dungeon_Wall" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430936e-08, -7, 0, 10)
+[node name="IronBar_Gates" type="Node" parent="."]
 
-[node name="Dungeon_Wall2" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -7, 0, -4)
+[node name="Dungeon_GateDoor3" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -2.4577847, 0.32064247, -24.182041)
 
-[node name="Dungeon_Wall3" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32, 0, 10)
+[node name="Dungeon_GateDoor8" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 10.329718, 0.31079388, -17.386341)
 
-[node name="Dungeon_Wall4" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32, 0, -4)
+[node name="Dungeon_GateDoor9" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 10.329719, 0.31079388, -3.7516866)
 
-[node name="Dungeon_Wall5" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -32, 0, -17)
+[node name="Dungeon_GateDoor12" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, 0.12971783, 0.31079388, -3.751686)
 
-[node name="Dungeon_Wall6" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430936e-08, 17, 0, -4)
+[node name="Dungeon_GateDoor13" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -13.470282, 0.31079388, 9.848315)
 
-[node name="Dungeon_Wall7" parent="." instance=ExtResource("4_mx8sn")]
-transform = Transform3D(-7.430936e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430936e-08, 17, 0, -17)
+[node name="Dungeon_GateDoor14" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -25.488102, 0.31079388, 9.848316)
+
+[node name="Dungeon_GateDoor10" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -25.451204, 0.31079388, -17.38634)
+
+[node name="Dungeon_GateDoor11" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, 1.7, 0, 1.7, 0, -1.7, 0, -7.430936e-08, -25.451202, 0.31079388, -3.751685)
+
+[node name="Dungeon_GateDoor4" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 31.903263, 0.31079388, -24.18634)
+
+[node name="Dungeon_GateDoor5" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(-7.430936e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, -7.430936e-08, 39.303715, 0.31079388, -20.982899)
+
+[node name="Dungeon_GateDoor6" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 5.6085296, 0.31079388, 16.40509)
+
+[node name="Dungeon_GateDoor7" parent="IronBar_Gates" instance=ExtResource("4_wic5t")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -19.198805, 0.31079388, 16.40509)
