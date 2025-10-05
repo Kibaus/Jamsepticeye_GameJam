@@ -83,10 +83,6 @@ func _check_visual_direction():
 	if diff_angle < 0:
 		diff_angle += 360
 	
-	print("move angle:" + str(move_direction_angle))
-	print("cam angle:" + str(angle_to_cam))
-	print("difference: " + str(diff_angle))
-	
 	_change_sprite_by_direction(diff_angle)
 
 func _change_sprite_by_direction(angle):
