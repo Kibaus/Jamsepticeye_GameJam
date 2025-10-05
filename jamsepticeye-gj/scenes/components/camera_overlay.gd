@@ -8,7 +8,7 @@ var is_linear_depth = false
 
 func _ready() -> void:
 	is_linear_depth = false
-	pass
+	canvas_overlay._hide_ripple_effect()
 
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ghost_switch")):
