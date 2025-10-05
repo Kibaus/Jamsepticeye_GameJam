@@ -69,6 +69,7 @@ func _update_movement(delta):
 func _ghost_switch():
 	var ghost = ghost_prefab.instantiate()
 	ghost.connect("return_to_player",_return_to_player)
+	ghost.player_node = self
 	get_parent().add_child(ghost)
 	ghost.position = position
 	ghost.rotation = rotation

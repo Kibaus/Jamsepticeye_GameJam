@@ -27,7 +27,7 @@ func _ready():
 	noise = FastNoiseLite.new()
 	noise.noise_type = FastNoiseLite.TYPE_SIMPLEX
 	noise.frequency = 1.2
-
+	
 	_initialize_lightning()
 	_generate_lightning()
 
@@ -36,10 +36,6 @@ func _process(delta: float) -> void:
 		return
 	for i in range(branch_count):
 		time_offsets[i] += delta * animate_speed
-		
-	#var current_distance = (end_node.global_transform.origin - start_node.global_transform.origin).length()
-	#chaos = clamp(current_distance / max_distance, 0.05, max_chao)
-
 	_generate_lightning()
 
 func _initialize_lightning():
@@ -58,14 +54,13 @@ func _generate_lightning() -> void:
 	if not start_node or not end_node:
 		return
 		
-	var offset_up = Vector3(0, 0.3, 0)  
-	var start_pos = start_node.global_transform.origin + offset_up
-	var end_pos = end_node.global_transform.origin + offset_up
+	var start_pos = global_transform.affine_inverse() * start_node.global_transform.origin + Vector3(0, 0.2, 0)
+	var end_pos = global_transform.affine_inverse() * end_node.global_transform.origin + Vector3(0, 1.1, 0)
+
 	var direction = end_pos - start_pos
 	var length_vec = direction.length()
 	var direction_norm = direction / length_vec
 
-	# Tạo vector vuông góc ổn định
 	var right = direction_norm.cross(Vector3.UP)
 	if right.length_squared() < 0.001:
 		right = direction_norm.cross(Vector3.RIGHT)
@@ -87,6 +82,17 @@ func _generate_lightning() -> void:
 			var t := float(i) / float(segments)
 			var pos = start_pos + direction * t
 
+			# Hai đầu cố định tuyệt đối
+			if i == 0:
+				centers.append(start_pos)
+				continue
+			elif i == segments:
+				centers.append(end_pos)
+				continue
+
+			# Giảm dần rung về 0 ở hai đầu
+			var end_fade = clamp((t * (1.0 - t)) * 4.0, 0.0, 1.0)
+
 			var base_wave = sin(t * freq * TAU + t_offset) * amp
 			base_wave += sin(t * freq * 0.5 * TAU + t_offset * 1.7) * amp * 0.4
 			base_wave += sin(t * freq * 1.8 * TAU + t_offset * 2.3) * amp * 0.3
@@ -97,7 +103,7 @@ func _generate_lightning() -> void:
 			var offset_y = (sin(t * freq * 0.7 * TAU + t_offset * 1.2) * amp * 0.6)
 			offset_y += noise.get_noise_3d(t * 5.0, b * 2.5, t_offset) * chaos * 0.5
 
-			var offset = right * offset_x + up * offset_y
+			var offset = (right * offset_x + up * offset_y) * end_fade
 			centers.append(pos + offset)
 
 		for i in range(segments):

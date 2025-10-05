@@ -9,6 +9,8 @@ extends CharacterBody3D
 
 var target_velocity = Vector3.ZERO
 
+var player_node: Node3D
+
 #mouse input
 @export_range(1, 100, 1) var mouse_sensitivity: int = 50
 @export var max_pitch : float = 89
@@ -19,6 +21,11 @@ signal return_to_player
 func _ready() -> void:
 	$MeshInstance3D.hide()
 	Input.set_use_accumulated_input(false)
+   
+	var tether_line: MeshInstance3D = load("res://scenes/game_components/tether_line.tscn").instantiate() 
+	add_child(tether_line)   
+	tether_line.start_node = player_node
+	tether_line.end_node = self
 
 func _input(event) -> void:
 	if event is InputEventMouseMotion:
