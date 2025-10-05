@@ -34,3 +34,4 @@ EVEMT                 | Button (Input)
 - SavestateCorrupted | Audio Designer ->  [https://savestatecorrupted.bandcamp.com/]
 - SleepyKenni | Artist -> (Insert Portfolio Link - If Desired)
 - Visha | Programmer -> (Insert Portfolio Link - If Desired)
+- Wolfman80 | QA
