@@ -36,7 +36,7 @@ func alerted_at(alert_pos : Vector3):
 	
 	current_state = EnemyState.Alerted
 	set_movement_target(alert_pos)
-	#%AlertedTimer.start()
+	%AlertedTimer.start()
 
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)

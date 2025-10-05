@@ -185,7 +185,7 @@ autostart = true
 
 [node name="AlertedTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
