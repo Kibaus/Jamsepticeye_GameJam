@@ -25,7 +25,7 @@ func play_oneshot(
 #Create stream that can multiplay 
 func play_polyphony(
 		p_audio_tag: String, 
-		p_max_distance: float = 0.0, 
+		p_max_distance: float = 10.0, 
 		p_unit_size: float = 10, 
 		p_max_polyphony: int = 3) -> AudioStreamPlayer3D:
 	if AudioManager.get_audio_by_tag(p_audio_tag) == null :

@@ -24,7 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_foprq")
 intro_text = "My time is ending, The carrion gathers, I must make sure, I must find her."
 death_text = Array[String](["You take from me what little is left", "Why do you deserve this?", "You were gone, and you return now, at the end.", "I do not hate you, but I don't understand.", " I don't even recognise you anymore", "This is not for you, have I not given enough?", "You will be fine without this, it is her I worry for", "Why don’t you understand?"])
-end_text = "I give you what is left of me, before it goes to waste, to those less deserving. 
+end_text = "I give you what is left of me, before it goes to waste.
 
 Do not be sad my darling child, for in this way a piece of me remains with you always
 and can remain by your side for whatever future may come.

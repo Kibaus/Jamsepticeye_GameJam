@@ -35,7 +35,9 @@ func alerted_at(alert_pos : Vector3):
 	if current_state == EnemyState.Hunting:
 		return
 	
-	current_state = EnemyState.Alerted
+	if current_state != EnemyState.Alerted:
+		current_state = EnemyState.Alerted
+		$AudioClient.play_oneshot("monster_alert",)
 	set_movement_target(alert_pos)
 	%AlertedTimer.start()
 
@@ -50,6 +52,10 @@ func _physics_process(_delta):
 		if current_state == EnemyState.Alerted:
 			%AlertedTimer.stop()
 		
+		if current_state != EnemyState.Hunting:
+			AudioManager.play_background_music("ambient_danger_found_you")
+			$AudioClient.play_oneshot("monster_callout")
+			
 		current_state = EnemyState.Hunting
 		%SightTimer.start()
 	
@@ -126,7 +132,7 @@ func _check_for_player():
 	if position.distance_to(player.position) < vision_range:
 		if _vision_raycast(player.position):
 			return true
-			
+
 	return false
 
 func _vision_raycast(player_pos):
@@ -165,6 +171,7 @@ func _on_velocity_computed(safe_velocity: Vector3):
 	move_and_slide()
 
 func _on_sight_timer_timeout() -> void:
+	AudioManager.play_background_music("ambient_safe_kinda")
 	current_state = EnemyState.Wander
 	var wanderpos = NavigationServer3D.map_get_random_point(navigation_agent.get_navigation_map(),1,false)
 	set_movement_target(wanderpos)

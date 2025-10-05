@@ -7,5 +7,5 @@ func _ready() -> void:
 	if first_load == false:
 		return
 	
-	AudioManager.set_background_music_volume(0)
+	#AudioManager.set_background_music_volume(0)
 	first_load = false

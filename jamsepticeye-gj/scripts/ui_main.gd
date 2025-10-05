@@ -12,6 +12,7 @@ func _on_play_button_down() -> void:
 
 func _on_intro_end():
 	get_tree().change_scene_to_file("res://scenes/game2.tscn")
+	AudioManager.play_background_music("ambient_safe_kinda")
 	get_tree().paused = false
 
 func _on_options_button_down() -> void:

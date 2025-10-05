@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://uay783v8jlm2"]
+[gd_scene load_steps=35 format=3 uid="uid://uay783v8jlm2"]
 
 [ext_resource type="Script" uid="uid://dd1kcbg27n7vs" path="res://scripts/enemy.gd" id="1_ipns3"]
 [ext_resource type="Texture2D" uid="uid://mhine1ldd25x" path="res://art/enemy/walk_side/EnemyLeftRightWalkCycle_f1.png" id="1_md484"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dhvxom86wvl54" path="res://art/enemy/walk_away/EnemyWalkAway_f7.png" id="14_605iw"]
 [ext_resource type="Texture2D" uid="uid://btlqvt2215xng" path="res://art/enemy/walk_forward/EnemyForwardWalkCycle_f8.png" id="15_78kod"]
 [ext_resource type="Texture2D" uid="uid://fj8nci8tixi3" path="res://art/enemy/walk_away/EnemyWalkAway_f8.png" id="15_x6q4o"]
+[ext_resource type="PackedScene" uid="uid://cnyqhwe0kxlg7" path="res://scenes/components/audio_client.tscn" id="32_lsnsy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s1ycm"]
 radius = 0.25
@@ -176,6 +177,7 @@ autoplay = "walk_forward"
 
 [node name="SightTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 2.0
 one_shot = true
 
 [node name="WanderTimer" type="Timer" parent="."]
@@ -187,6 +189,9 @@ autostart = true
 unique_name_in_owner = true
 wait_time = 15.0
 one_shot = true
+
+[node name="AudioClient" parent="." instance=ExtResource("32_lsnsy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1152654, 0)
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_navigation_finished"]
 [connection signal="timeout" from="SightTimer" to="." method="_on_sight_timer_timeout"]

@@ -18,6 +18,108 @@ transform = Transform3D(1, 0, 0, 0, 0.9723699, 0.23344538, 0, -0.23344538, 0.972
 [node name="Level2" parent="test" instance=ExtResource("2_0wfyh")]
 transform = Transform3D(0.58, 0, 0, 0, 0.58, 0, 0, 0, 0.58, -1.9245667, 0, 0)
 
+[node name="OmniLight3D" parent="test/Level2/Lighting" index="0"]
+light_energy = 1.0
+
+[node name="OmniLight3D15" parent="test/Level2/Lighting" index="1"]
+light_energy = 1.0
+
+[node name="OmniLight3D16" parent="test/Level2/Lighting" index="2"]
+light_energy = 1.0
+
+[node name="OmniLight3D17" parent="test/Level2/Lighting" index="3"]
+light_energy = 1.0
+
+[node name="OmniLight3D18" parent="test/Level2/Lighting" index="4"]
+light_energy = 1.0
+
+[node name="OmniLight3D19" parent="test/Level2/Lighting" index="5"]
+light_energy = 1.0
+
+[node name="OmniLight3D20" parent="test/Level2/Lighting" index="6"]
+light_energy = 1.0
+
+[node name="OmniLight3D21" parent="test/Level2/Lighting" index="7"]
+light_energy = 1.0
+
+[node name="OmniLight3D27" parent="test/Level2/Lighting" index="8"]
+light_energy = 1.0
+
+[node name="OmniLight3D28" parent="test/Level2/Lighting" index="9"]
+light_energy = 1.0
+
+[node name="OmniLight3D29" parent="test/Level2/Lighting" index="10"]
+light_energy = 1.0
+
+[node name="OmniLight3D30" parent="test/Level2/Lighting" index="11"]
+light_energy = 1.0
+
+[node name="OmniLight3D33" parent="test/Level2/Lighting" index="12"]
+light_energy = 1.0
+
+[node name="OmniLight3D34" parent="test/Level2/Lighting" index="13"]
+light_energy = 1.0
+
+[node name="OmniLight3D31" parent="test/Level2/Lighting" index="14"]
+light_energy = 1.0
+
+[node name="OmniLight3D32" parent="test/Level2/Lighting" index="15"]
+light_energy = 1.0
+
+[node name="OmniLight3D22" parent="test/Level2/Lighting" index="16"]
+light_energy = 1.0
+
+[node name="OmniLight3D23" parent="test/Level2/Lighting" index="17"]
+light_energy = 1.0
+
+[node name="OmniLight3D24" parent="test/Level2/Lighting" index="18"]
+light_energy = 1.0
+
+[node name="OmniLight3D25" parent="test/Level2/Lighting" index="19"]
+light_energy = 1.0
+
+[node name="OmniLight3D26" parent="test/Level2/Lighting" index="20"]
+light_energy = 1.0
+
+[node name="OmniLight3D2" parent="test/Level2/Lighting" index="21"]
+light_energy = 1.0
+
+[node name="OmniLight3D3" parent="test/Level2/Lighting" index="22"]
+light_energy = 1.0
+
+[node name="OmniLight3D4" parent="test/Level2/Lighting" index="23"]
+light_energy = 1.0
+
+[node name="OmniLight3D5" parent="test/Level2/Lighting" index="24"]
+light_energy = 1.0
+
+[node name="OmniLight3D6" parent="test/Level2/Lighting" index="25"]
+light_energy = 1.0
+
+[node name="OmniLight3D7" parent="test/Level2/Lighting" index="26"]
+light_energy = 1.0
+
+[node name="OmniLight3D8" parent="test/Level2/Lighting" index="27"]
+light_energy = 1.0
+
+[node name="OmniLight3D9" parent="test/Level2/Lighting" index="28"]
+light_energy = 1.0
+
+[node name="OmniLight3D10" parent="test/Level2/Lighting" index="29"]
+light_energy = 1.0
+
+[node name="OmniLight3D11" parent="test/Level2/Lighting" index="30"]
+light_energy = 1.0
+
+[node name="OmniLight3D12" parent="test/Level2/Lighting" index="31"]
+light_energy = 1.0
+
+[node name="OmniLight3D13" parent="test/Level2/Lighting" index="32"]
+light_energy = 1.0
+
+[node name="OmniLight3D14" parent="test/Level2/Lighting" index="33"]
+light_energy = 1.0
+
 [node name="Roof" parent="test/Level2/visual_update" index="2"]
 visible = true
 

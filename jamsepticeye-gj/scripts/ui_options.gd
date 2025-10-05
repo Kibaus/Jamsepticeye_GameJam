@@ -101,7 +101,7 @@ func _on_ResetButton_pressed():
 	full_screen_toggle.button_pressed = DisplayServer.window_get_mode()
 	
 	#Reset Master Volume
-	AudioManager.master_volume = 1
+	AudioManager.master_volume = 2
 	master_volume.value = AudioManager.master_volume
 	
 	#Reset Music Volume

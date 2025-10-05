@@ -114,24 +114,18 @@ func play_maintain_sound_effect(p_tag: String) -> AudioStreamPlayer:
 
 #Update the background music now
 func play_background_music(p_tag: String) -> void:
-	var fade_time: float = 1.0
 	var new_audio = get_audio_by_tag(p_tag)
 	if not new_audio:
 		print("(Background Music) Audio File not found: ", p_tag)
 		return
-
-	var tween = create_tween()
-	tween.tween_property(background_music, "volume_db", -80, fade_time)
-	tween.tween_callback(func(): _switch_background_music(new_audio, fade_time))
-
-func _switch_background_music(p_new_audio: AudioWithTag, p_fade_time: float) -> void:
-	background_music.stream = p_new_audio.file
+	
+	#var current_play_positon = background_music.get_playback_position()
+	
+	background_music.stream = new_audio.file
 	#Temporary set, when all music import and manual set loop, don't need
-	background_music.connect("finished", Callable(background_music, "play"))
+	#background_music.connect("finished", Callable(background_music, "play"))
 	background_music.bus = BUS_MUSIC
 	background_music.call_deferred("play")
-	var tween = create_tween()
-	tween.tween_property(background_music, "volume_db", 0, p_fade_time)
 
 func pause_background_music() -> void:
 	background_music.stream_paused = true

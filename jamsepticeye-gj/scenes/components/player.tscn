@@ -82,6 +82,7 @@ mesh = SubResource("QuadMesh_h3cwf")
 skeleton = NodePath("../..")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="."]
+current = true
 
 [node name="GhostWall" type="Node3D" parent="."]
 unique_name_in_owner = true

@@ -1,35 +1,66 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxiqy0m2i8a5k"]
+[gd_scene load_steps=20 format=3 uid="uid://bxiqy0m2i8a5k"]
 
 [ext_resource type="Script" uid="uid://c6ssajrve3ldt" path="res://scripts/sub_class/audio_with_tag.gd" id="2_q7pj8"]
 [ext_resource type="Script" uid="uid://dc3rne03xbyid" path="res://scripts/audio_manager.gd" id="2_t0ifg"]
-[ext_resource type="AudioStream" uid="uid://c67u0psapw7ql" path="res://audio/music/an_old_dream.mp3" id="3_v7pfr"]
-[ext_resource type="AudioStream" uid="uid://wm38gqd46obm" path="res://audio/music/sayonara_gokko.mp3" id="4_v7pfr"]
-[ext_resource type="AudioStream" uid="uid://d0vv0ewh82lf7" path="res://audio/sfx/step.mp3" id="4_xu4a8"]
+[ext_resource type="AudioStream" uid="uid://2s0qv3m6xgyk" path="res://audio/music/ambient_danger_approaching.wav" id="3_xngj1"]
+[ext_resource type="AudioStream" uid="uid://dfjkxltpo3qgv" path="res://audio/music/ambient_danger_found_you.wav" id="4_m8mku"]
+[ext_resource type="AudioStream" uid="uid://0vcn25shiii7" path="res://audio/music/ambient_safe_kinda.wav" id="5_chxat"]
+[ext_resource type="AudioStream" uid="uid://hfkel6jcgw3a" path="res://audio/music/menu_ambiance.wav" id="6_05mkw"]
+[ext_resource type="AudioStream" uid="uid://cpftuvvhalh1v" path="res://audio/sfx/door.wav" id="7_c64uk"]
+[ext_resource type="AudioStream" uid="uid://b6bgtpvam8c2u" path="res://audio/sfx/monster_callout.wav" id="8_4e087"]
+[ext_resource type="AudioStream" uid="uid://2qu8rw311dcu" path="res://audio/sfx/monster_stomp.wav" id="9_v3l6q"]
+[ext_resource type="AudioStream" uid="uid://c1d4m27y6qjju" path="res://audio/sfx/switch_press.wav" id="10_m8mku"]
 
-[sub_resource type="Resource" id="Resource_v7pfr"]
+[sub_resource type="Resource" id="Resource_chxat"]
 script = ExtResource("2_q7pj8")
-file = ExtResource("3_v7pfr")
-tag = "an_old_dream"
+file = ExtResource("3_xngj1")
+tag = "ambient_danger_approaching"
 
-[sub_resource type="Resource" id="Resource_xu4a8"]
+[sub_resource type="Resource" id="Resource_05mkw"]
 script = ExtResource("2_q7pj8")
-file = ExtResource("4_v7pfr")
-tag = "sayonara_gokko"
+file = ExtResource("4_m8mku")
+tag = "ambient_danger_found_you"
 
-[sub_resource type="Resource" id="Resource_li0p0"]
+[sub_resource type="Resource" id="Resource_c64uk"]
 script = ExtResource("2_q7pj8")
-file = ExtResource("4_xu4a8")
-tag = "step"
+file = ExtResource("5_chxat")
+tag = "ambient_safe_kinda"
+
+[sub_resource type="Resource" id="Resource_4e087"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("6_05mkw")
+tag = "menu_ambiance"
+
+[sub_resource type="Resource" id="Resource_v3l6q"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("7_c64uk")
+tag = "door"
+
+[sub_resource type="Resource" id="Resource_jdkqx"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("8_4e087")
+tag = "monster_callout"
+
+[sub_resource type="Resource" id="Resource_e1par"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("9_v3l6q")
+tag = "monster_stomp"
+
+[sub_resource type="Resource" id="Resource_emaw8"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("10_m8mku")
+tag = "switch_press"
 
 [sub_resource type="GDScript" id="GDScript_v7pfr"]
 
 [node name="AudioManager" type="Node"]
+process_mode = 3
 script = ExtResource("2_t0ifg")
-sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_v7pfr"), SubResource("Resource_xu4a8"), SubResource("Resource_li0p0")])
+background_music_volume = 9.999999e-05
+sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_chxat"), SubResource("Resource_05mkw"), SubResource("Resource_c64uk"), SubResource("Resource_4e087"), SubResource("Resource_v3l6q"), SubResource("Resource_jdkqx"), SubResource("Resource_e1par"), SubResource("Resource_emaw8")])
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_v7pfr")
+stream = ExtResource("6_05mkw")
 autoplay = true
 bus = &"BackgroundMusic"
-parameters/looping = true
 script = SubResource("GDScript_v7pfr")
