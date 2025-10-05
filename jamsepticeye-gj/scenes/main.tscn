@@ -9,7 +9,7 @@
 script = ExtResource("1_0wfyh")
 
 [node name="CamPivot" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9723699, 0.23344538, 0, -0.23344538, 0.9723699, 1.1115923, 1.8485572, 0.08395386)
+transform = Transform3D(1, 0, 0, 0, 0.9723699, 0.23344538, 0, -0.23344538, 0.9723699, 1.1115923, 1.8485572, 2.2937884)
 
 [node name="Camera3D" type="Camera3D" parent="CamPivot"]
 
