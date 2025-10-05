@@ -126,6 +126,7 @@ func _check_for_player():
 	
 	if position.distance_to(player.position) < grab_range:
 		if _vision_raycast(player.position):
+			AudioManager.play_background_music("ambient_safe_kinda")
 			UIManager.ui_ingame.story.play_death_message()
 			get_tree().paused = true
 	
