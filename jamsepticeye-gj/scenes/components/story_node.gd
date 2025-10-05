@@ -13,7 +13,11 @@ var current_task : Callable
 var story_block = false
 
 func _ready() -> void:
+	var center = get_viewport_rect().size / 2
+	%Scare.position = center
+	%Scare.hide()
 	self.hide()
+	
 
 func set_on_finish(task : Callable):
 	current_task = task
@@ -29,7 +33,7 @@ func play_death_message():
 	story_block = true
 	set_on_finish(_on_death_message_end)
 	var message = death_text[death_count]
-	_display_story_beat(message,3)
+	_display_story_beat(message,3,true)
 	death_count += 1
 	if death_count == death_text.size():
 		death_count -= death_text.size()
@@ -54,9 +58,9 @@ func play_end():
 func _resume_game():
 	get_tree().paused = false
 
-func _display_story_beat(line : String, end_delay : int):
+func _display_story_beat(line : String, end_delay : int,jumpscare : bool = false):
 	#override while this doesnt work
-	_story_beat_simple(line,end_delay)
+	_story_beat_simple(line,end_delay,jumpscare)
 	return
 	
 	%BG.modulate = Color.TRANSPARENT
@@ -80,9 +84,20 @@ func _display_story_beat(line : String, end_delay : int):
 	story_block = false
 	self.hide()
 
-func _story_beat_simple(line : String, end_delay : int):
+func _story_beat_simple(line : String, end_delay : int, jumpscare : bool = false):
 	self.show()
 	%BG.modulate = Color.BLACK
+	%Text.text = ""
+	
+	if jumpscare:
+		#%Scare.scale = Vector2(0,0)
+		%Scare.show()
+		AudioManager.play_short_sound_effect("monster_kill")
+		#var tween : Tween = get_tree().create_tween()
+		#tween.tween_property(%Scare,"scale",Vector2(1,1),1)
+		await get_tree().create_timer(1).timeout
+		%Scare.hide()
+	
 	%Text.add_theme_color_override("font_color",Color.WHITE)
 	%Text.text = line
 	
