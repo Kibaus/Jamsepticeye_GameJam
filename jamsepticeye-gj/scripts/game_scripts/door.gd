@@ -16,6 +16,8 @@ func _ready() -> void:
 
 func open( animate : bool = true):
 	if animate:
+		$AudioClient.play_oneshot("door",3,10)
+		
 		var tween : Tween = get_tree().create_tween()
 		tween.tween_property(%Moveable,"position",initial_position + Vector3(0,2,0),1)
 	else:
@@ -23,6 +25,8 @@ func open( animate : bool = true):
 
 func close(animate : bool = true):
 	if animate:
+		$AudioClient.play_oneshot("door",3,10)
+		
 		var tween : Tween = get_tree().create_tween()
 		tween.tween_property(%Moveable,"position",initial_position,1)
 	else:

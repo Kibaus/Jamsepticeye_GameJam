@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://rol1o4iavw6g"]
+[gd_scene load_steps=6 format=3 uid="uid://rol1o4iavw6g"]
 
 [ext_resource type="Script" uid="uid://bihowvujpdtjn" path="res://scripts/game_scripts/door.gd" id="1_hpvv5"]
 [ext_resource type="PackedScene" uid="uid://cj0kqlu53yq02" path="res://Prefabs/Dungeon_SolidWood_Door.glb" id="2_6ys30"]
 [ext_resource type="Texture2D" uid="uid://7snjjnkk1gxm" path="res://art/symbols/sun.png" id="2_ps6of"]
+[ext_resource type="PackedScene" uid="uid://cnyqhwe0kxlg7" path="res://scenes/components/audio_client.tscn" id="4_10fmi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f452"]
 size = Vector3(0.5, 2, 2)
@@ -36,3 +37,5 @@ unique_name_in_owner = true
 transform = Transform3D(-1.8140225e-08, 0, 0.415, 0, 0.415, 0, -0.415, 0, -1.8140225e-08, -0.043056726, 0.49537694, 0.000218153)
 alpha_cut = 3
 texture = ExtResource("2_ps6of")
+
+[node name="AudioClient" parent="." instance=ExtResource("4_10fmi")]

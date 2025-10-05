@@ -27,13 +27,13 @@ func set_on_finish(task : Callable):
 func play_intro():
 	story_block = true
 	get_tree().paused = true
-	_display_story_beat(intro_text,3)
+	_display_story_beat(intro_text,5)
 
 func play_death_message():
 	story_block = true
 	set_on_finish(_on_death_message_end)
 	var message = death_text[death_count]
-	_display_story_beat(message,3,true)
+	_display_story_beat(message,4,true)
 	death_count += 1
 	if death_count == death_text.size():
 		death_count -= death_text.size()
