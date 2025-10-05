@@ -6,9 +6,14 @@ extends Node3D
 var show_linear_depth_tween: Tween = null
 var is_linear_depth = false
 
+func _ready() -> void:
+	_linear_depth_tween(0,0)
+
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ghost_switch")):
-		if(is_linear_depth):
+		var active = Core.current_player.currently_active
+		
+		if(active):
 			_linear_depth_tween(0)
 			is_linear_depth = false
 		else:

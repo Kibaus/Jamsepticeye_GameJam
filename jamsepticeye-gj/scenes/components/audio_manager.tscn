@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxiqy0m2i8a5k"]
+[gd_scene load_steps=24 format=3 uid="uid://bxiqy0m2i8a5k"]
 
 [ext_resource type="Script" uid="uid://c6ssajrve3ldt" path="res://scripts/sub_class/audio_with_tag.gd" id="2_q7pj8"]
 [ext_resource type="Script" uid="uid://dc3rne03xbyid" path="res://scripts/audio_manager.gd" id="2_t0ifg"]
@@ -10,43 +10,55 @@
 [ext_resource type="AudioStream" uid="uid://b6bgtpvam8c2u" path="res://audio/sfx/monster_callout.wav" id="8_4e087"]
 [ext_resource type="AudioStream" uid="uid://2qu8rw311dcu" path="res://audio/sfx/monster_stomp.wav" id="9_v3l6q"]
 [ext_resource type="AudioStream" uid="uid://c1d4m27y6qjju" path="res://audio/sfx/switch_press.wav" id="10_m8mku"]
+[ext_resource type="AudioStream" uid="uid://cwsk6gj3a2kq5" path="res://audio/sfx/monster_alert.wav" id="11_05mkw"]
+[ext_resource type="AudioStream" uid="uid://cu1kmv51ob0ss" path="res://audio/sfx/monster_kill.wav" id="12_c64uk"]
 
-[sub_resource type="Resource" id="Resource_chxat"]
+[sub_resource type="Resource" id="Resource_05mkw"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("3_xngj1")
 tag = "ambient_danger_approaching"
 
-[sub_resource type="Resource" id="Resource_05mkw"]
+[sub_resource type="Resource" id="Resource_c64uk"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("4_m8mku")
 tag = "ambient_danger_found_you"
 
-[sub_resource type="Resource" id="Resource_c64uk"]
+[sub_resource type="Resource" id="Resource_4e087"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("5_chxat")
 tag = "ambient_safe_kinda"
 
-[sub_resource type="Resource" id="Resource_4e087"]
+[sub_resource type="Resource" id="Resource_v3l6q"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("6_05mkw")
 tag = "menu_ambiance"
 
-[sub_resource type="Resource" id="Resource_v3l6q"]
+[sub_resource type="Resource" id="Resource_jdkqx"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("7_c64uk")
 tag = "door"
 
-[sub_resource type="Resource" id="Resource_jdkqx"]
+[sub_resource type="Resource" id="Resource_e1par"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("11_05mkw")
+tag = "monster_alert"
+
+[sub_resource type="Resource" id="Resource_emaw8"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("8_4e087")
 tag = "monster_callout"
 
-[sub_resource type="Resource" id="Resource_e1par"]
+[sub_resource type="Resource" id="Resource_fgas2"]
+script = ExtResource("2_q7pj8")
+file = ExtResource("12_c64uk")
+tag = "monster_kill"
+
+[sub_resource type="Resource" id="Resource_14iye"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("9_v3l6q")
 tag = "monster_stomp"
 
-[sub_resource type="Resource" id="Resource_emaw8"]
+[sub_resource type="Resource" id="Resource_813yr"]
 script = ExtResource("2_q7pj8")
 file = ExtResource("10_m8mku")
 tag = "switch_press"
@@ -57,7 +69,7 @@ tag = "switch_press"
 process_mode = 3
 script = ExtResource("2_t0ifg")
 background_music_volume = 9.999999e-05
-sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_chxat"), SubResource("Resource_05mkw"), SubResource("Resource_c64uk"), SubResource("Resource_4e087"), SubResource("Resource_v3l6q"), SubResource("Resource_jdkqx"), SubResource("Resource_e1par"), SubResource("Resource_emaw8")])
+sound_list = Array[ExtResource("2_q7pj8")]([SubResource("Resource_05mkw"), SubResource("Resource_c64uk"), SubResource("Resource_4e087"), SubResource("Resource_v3l6q"), SubResource("Resource_jdkqx"), SubResource("Resource_e1par"), SubResource("Resource_emaw8"), SubResource("Resource_fgas2"), SubResource("Resource_14iye"), SubResource("Resource_813yr")])
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_05mkw")

@@ -28,8 +28,8 @@ var current_direction = Direction.None
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	Core.Set_active_enemy(self)
-	var wanderpos = NavigationServer3D.map_get_random_point(navigation_agent.get_navigation_map(),1,false)
-	set_movement_target(wanderpos)
+	#var wanderpos = NavigationServer3D.map_get_random_point(navigation_agent.get_navigation_map(),1,false)
+	#set_movement_target(wanderpos)
 
 func alerted_at(alert_pos : Vector3):
 	if current_state == EnemyState.Hunting:

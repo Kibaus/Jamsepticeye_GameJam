@@ -41,6 +41,7 @@ var music_folder = "res://audio/music/"
 var sfx_folder = "res://audio/sfx/"
 
 func _ready() -> void:
+	#sound_list.clear()
 	load_sounds_from_folder(music_folder)
 	load_sounds_from_folder(sfx_folder)
 	#background_music.volume_linear = background_music_volume
