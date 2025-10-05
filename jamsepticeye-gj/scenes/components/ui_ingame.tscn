@@ -44,13 +44,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scare" type="Sprite2D" parent="story_node"]
-unique_name_in_owner = true
-top_level = true
-position = Vector2(626, 359)
-scale = Vector2(0.415, 0.415)
-texture = ExtResource("3_8jjvg")
-
 [node name="Text" type="Label" parent="story_node"]
 unique_name_in_owner = true
 layout_mode = 1
@@ -72,3 +65,16 @@ Do not be angry at those who gathered, we know too little of what drives them, a
 Goodbye, I will always love you."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Scare" type="TextureRect" parent="story_node"]
+unique_name_in_owner = true
+top_level = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8jjvg")
+expand_mode = 3
+stretch_mode = 5

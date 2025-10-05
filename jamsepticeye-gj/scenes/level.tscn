@@ -1513,9 +1513,6 @@ transform = Transform3D(-0.9659266, -0.25881934, 8.4444125e-08, -0.25881925, 0.9
 [node name="Dungeon_Cage18" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
 transform = Transform3D(-0.965927, -0.25881934, 8.929347e-08, -0.25000027, 0.93301433, 0.25881943, -0.06698746, 0.25000036, -0.9659273, -36.921864, 0.47419098, -4.8575373)
 
-[node name="Dungeon_Cage21" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
-transform = Transform3D(3.0908705e-08, -0.7071078, 0.70710766, 1.0000004, -4.371145e-08, -8.742299e-08, 9.272607e-08, 0.70710766, 0.7071078, -13.833003, 1.0447843, -20.996363)
-
 [node name="Dungeon_Cage22" parent="visual_update/Props" instance=ExtResource("8_olg7q")]
 transform = Transform3D(1.2964499e-07, 1.131336e-08, 1.0000011, -0.25881934, 0.9659277, 2.2626748e-08, -0.9659272, -0.25881934, 1.2815565e-07, -19.683601, 0.47419107, -21.550804)
 
@@ -1818,9 +1815,6 @@ transform = Transform3D(0.5000002, -0.86602587, 0, 0.86602587, 0.5000002, 0, 0, 
 
 [node name="Dungeon_Table5" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
 transform = Transform3D(-2.1855707e-08, 3.78552e-08, -1.0000004, 0.86602587, 0.5000002, 0, 0.5000002, -0.86602587, -4.371142e-08, -3.0857763, 1.3314561, -12.618724)
-
-[node name="Dungeon_Table6" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
-transform = Transform3D(-5.3280953e-08, -0.31674233, -0.9485127, -9.0552845e-08, -0.94851327, 0.31674218, -1.0000011, 1.027668e-07, 2.1855726e-08, -10.690412, 2.7781157, -19.968786)
 
 [node name="Dungeon_Table4" parent="visual_update/Props" instance=ExtResource("10_8iemx")]
 transform = Transform3D(0.35355368, -0.61237305, 0.70710737, 0.86602587, 0.5000002, 0, -0.3535537, 0.6123731, 0.7071074, 21.56612, 1.3344225, -20.541065)

@@ -13,8 +13,6 @@ var current_task : Callable
 var story_block = false
 
 func _ready() -> void:
-	var center = get_viewport_rect().size / 2
-	%Scare.position = center
 	%Scare.hide()
 	self.hide()
 	
@@ -90,7 +88,6 @@ func _story_beat_simple(line : String, end_delay : int, jumpscare : bool = false
 	%Text.text = ""
 	
 	if jumpscare:
-		#%Scare.scale = Vector2(0,0)
 		%Scare.show()
 		AudioManager.play_short_sound_effect("monster_kill")
 		#var tween : Tween = get_tree().create_tween()
