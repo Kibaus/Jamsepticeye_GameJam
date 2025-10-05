@@ -17,10 +17,12 @@ var mouse_sensitivity: int = 50
 var is_special_visual_effect_on: bool = true
 
 var resolutions = [
-	Vector2(960, 540),
-	Vector2(1280, 720),
-	Vector2(1440, 810),
-	Vector2(1920, 1080)
+		ResolutionData.new(960, 540, "960 x 540"),
+		ResolutionData.new(1280, 720, "1280 x 720"),
+		ResolutionData.new(1440, 810, "1440 x 810"),
+		ResolutionData.new(1920, 1080, "1920 x 1080"),
+		ResolutionData.new(2560, 1440, "2560 x 1440 (2K)"),
+		ResolutionData.new(3840, 2160, "3840 x 2160 (4K)"),
 	]
 
 func _ready() -> void:
@@ -34,8 +36,8 @@ func _ready() -> void:
 	#vsync_checkbutton.button_pressed = DisplayServer.window_get_vsync_mode()
 	
 	for i in range(resolutions.size()):
-		var res = resolutions[i]
-		resolution_option_button.add_item(str(int(res.x)) + " x " + str(int(res.y)))
+		var res: ResolutionData = resolutions[i]
+		resolution_option_button.add_item(res.resolution_name)
 	
 	_on_ResetButton_pressed()
 	
@@ -70,13 +72,15 @@ func _on_VSYNC_checkbutton_toggle(toggle_on):
 func _on_FullSCreen_checkbutton_toggle(toggle_on):
 	if(toggle_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		resolution_option_button.disabled = true
 	else:
+		resolution_option_button.disabled = false
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		DisplayServer.window_set_size(resolutions[clamp(resolution_option_button.selected, 0, resolutions.size()-1)])
-		get_viewport().scaling_3d_scale = 1
-		
+		DisplayServer.window_set_size(resolutions[clamp(resolution_option_button.selected, 0, resolutions.size()-1)].resolution_data)
+
 func _on_OptionResolution_selected(index):
-	DisplayServer.window_set_size(resolutions[index])
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_size(resolutions[index].resolution_data)
 	#if(DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN):
 		#get_viewport().scaling_3d_scale = resolutions[index].z
 	#else:
@@ -101,7 +105,7 @@ func _on_ResetButton_pressed():
 	master_volume.value = AudioManager.master_volume
 	
 	#Reset Music Volume
-	AudioManager.background_music_volume = 0
+	AudioManager.background_music_volume = 1
 	background_music_volume.value = AudioManager.background_music_volume
 	
 	#Reset SFX Volume
@@ -125,10 +129,24 @@ func _on_ResetButton_pressed():
 	special_visual_effect_checkbutton.button_pressed = true
 	
 	#Reset resolution
-	DisplayServer.window_set_size(resolutions[1])
+	DisplayServer.window_set_size(resolutions[1].resolution_data)
 	resolution_option_button.selected = 1
 	
 	#Reset full screen
+	resolution_option_button.disabled = false
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	full_screen_toggle.button_pressed = DisplayServer.window_get_mode()
 	
+class ResolutionData:
+	var resolution_data: Vector2
+	var resolution_name: String
+	
+	func _init(_resolution_data_x: int, _resolution_data_y: int, _resolution_name: String):
+		resolution_data = Vector2(_resolution_data_x, _resolution_data_y)
+		resolution_name = _resolution_name
+
+	func _get_data() -> Vector2:
+		return resolution_data
+
+	func _get_name() -> String:
+		return resolution_name
