@@ -68,3 +68,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1331892, 0)
 light_color = Color(8.904189e-07, 0.36339524, 0.42367625, 1)
 light_specular = 0.0
+
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
