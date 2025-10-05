@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqfvgtihj5vx2"]
+
+[ext_resource type="Script" uid="uid://dj4pe1i80hvo7" path="res://scenes/queen.gd" id="1_e14lb"]
+[ext_resource type="Texture2D" uid="uid://xnslg5q30ill" path="res://art/queen_sleep.png" id="1_o0ch0"]
+[ext_resource type="Texture2D" uid="uid://dl5logrqpinqy" path="res://art/queen_awake.png" id="2_e14lb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4b865"]
+radius = 1.0201885
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lt6if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o0ch0")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e14lb")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Queen" type="RigidBody3D"]
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_e14lb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3643806, 0)
+shape = SubResource("SphereShape3D_4b865")
+
+[node name="AnimSprite" type="AnimatedSprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.7205755, 0)
+billboard = 2
+alpha_cut = 3
+sprite_frames = SubResource("SpriteFrames_lt6if")
+animation = &"close"

@@ -13,6 +13,7 @@ var previous_ui : UI = UI.none
 
 @onready var canvas_overlay: Control = $CanvasOverlay
 @onready var ui_option: Control = $ui_options
+@onready var ui_ingame: GameUI = $ui_ingame
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +21,9 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 		if Input.is_action_just_pressed("pause_game"):
+			if ui_ingame.story.story_block == true:
+				return
+			
 			if current_ui != UI.main:
 				if current_ui == UI.ingame:
 					switch_ui(UI.pause)

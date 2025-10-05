@@ -8,7 +8,7 @@
 [ext_resource type="Material" uid="uid://lbjmnhp7fy0f" path="res://Materials/canvas/vignette.tres" id="4_13u4i"]
 [ext_resource type="PackedScene" uid="uid://bf5knpqguv2r1" path="res://scenes/components/ui_options.tscn" id="4_tanoa"]
 [ext_resource type="Material" uid="uid://lw2edqflwthp" path="res://Materials/canvas/fish_eye.tres" id="5_eutd8"]
-[ext_resource type="PackedScene" uid="uid://s7ma42yxvhwv" path="res://scenes/components/ui_ingame.tscn" id="5_jo33p"]
+[ext_resource type="PackedScene" uid="uid://jrc2glkfjudi" path="res://scenes/components/ui_ingame.tscn" id="5_jo33p"]
 
 [sub_resource type="Theme" id="Theme_0wfyh"]
 default_font_size = 22
@@ -84,5 +84,5 @@ visible = false
 layout_mode = 1
 
 [node name="ui_ingame" parent="." instance=ExtResource("5_jo33p")]
-visible = false
-layout_mode = 0
+process_mode = 0
+layout_mode = 1

@@ -102,6 +102,8 @@ func interact():
 	if result.collider != null:
 		if result.collider is Switch:
 			result.collider.use()
+		if result.collider is Queen:
+			result.collider.wake_up()
 		print("interacted with: " + result.collider.name)
 
 #Handles aim look with the mouse.

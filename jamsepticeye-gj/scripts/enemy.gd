@@ -12,6 +12,7 @@ enum EnemyState {
 
 var current_state : EnemyState = EnemyState.Wander
 var vision_range : int = 7
+var grab_range : int = 1
 
 enum Direction 
 {
@@ -116,6 +117,11 @@ func _check_for_player():
 		return false
 	
 	var player = Core.current_player
+	
+	if position.distance_to(player.position) < grab_range:
+		if _vision_raycast(player.position):
+			UIManager.ui_ingame.story.play_death_message()
+			get_tree().paused = true
 	
 	if position.distance_to(player.position) < vision_range:
 		if _vision_raycast(player.position):
