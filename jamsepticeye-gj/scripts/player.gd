@@ -73,6 +73,9 @@ func _ghost_switch():
 	ghost.position = position
 	ghost.rotation = rotation
 	ghost.switch_to_ghost()
+	var ghost_audio_listener: AudioListener3D = ghost.get_node("AudioListener3D")
+	ghost_audio_listener.make_current()
+	
 	%Visual.show()
 	%GhostWall.show()
 	currently_active = false
@@ -82,6 +85,7 @@ func _return_to_player():
 	%Visual.hide()
 	%GhostWall.hide()
 	currently_active = true
+	$AudioListener3D.make_current()
 
 func interact():
 	var space_state = get_world_3d().direct_space_state

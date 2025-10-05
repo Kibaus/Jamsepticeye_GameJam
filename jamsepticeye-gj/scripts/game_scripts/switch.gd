@@ -21,7 +21,7 @@ func to_bottom(animate : bool = true):
 func use():
 	pressed.emit()
 	
-	$AudioClient.play_oneshot("switch_press")
+	$AudioClient.play_oneshot("switch_press", 2, 10)
 	
 	var forward = basis.z
 	Core.current_enemy.alerted_at(position + forward)
