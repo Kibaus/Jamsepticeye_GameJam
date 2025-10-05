@@ -37,7 +37,7 @@ func alerted_at(alert_pos : Vector3):
 	
 	if current_state != EnemyState.Alerted:
 		current_state = EnemyState.Alerted
-		$AudioClient.play_oneshot("monster_alert",)
+		$AudioClient.play_oneshot("monster_alert",10,5)
 	set_movement_target(alert_pos)
 	%AlertedTimer.start()
 
