@@ -29,8 +29,8 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -320.0
-offset_right = 320.0
+offset_left = -340.0
+offset_right = 340.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
@@ -43,7 +43,7 @@ text = "Reset to default"
 
 [node name="Resolution" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/Resolution"]
 layout_mode = 2
@@ -55,41 +55,9 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="3DScaling" type="HSplitContainer" parent="MenuButtons"]
-layout_mode = 2
-split_offset = -105
-
-[node name="Label" type="Label" parent="MenuButtons/3DScaling"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "3D Scale"
-horizontal_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="MenuButtons/3DScaling"]
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 2.0
-step = 0.1
-
-[node name="MouseSensitivity" type="HSplitContainer" parent="MenuButtons"]
-layout_mode = 2
-split_offset = -105
-
-[node name="Label" type="Label" parent="MenuButtons/MouseSensitivity"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Mouse Sensitivity"
-horizontal_alignment = 1
-
-[node name="HSlider" type="HSlider" parent="MenuButtons/MouseSensitivity"]
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 150.0
-step = 10.0
-
 [node name="FullScreen" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/FullScreen"]
 layout_mode = 2
@@ -101,9 +69,25 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="3DScaling" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -90
+
+[node name="Label" type="Label" parent="MenuButtons/3DScaling"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3D Quality"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/3DScaling"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 2.0
+step = 0.1
+
 [node name="VSYNC" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/VSYNC"]
 layout_mode = 2
@@ -117,7 +101,7 @@ size_flags_horizontal = 6
 
 [node name="SpecialVisualEffect" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/SpecialVisualEffect"]
 layout_mode = 2
@@ -129,9 +113,25 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="MouseSensitivity" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -90
+
+[node name="Label" type="Label" parent="MenuButtons/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse Sensitivity"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 150.0
+step = 10.0
+
 [node name="MasterVolume" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/MasterVolume"]
 layout_mode = 2
@@ -147,7 +147,7 @@ step = 0.01
 
 [node name="BackgroundMusicVolume" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/BackgroundMusicVolume"]
 layout_mode = 2
@@ -163,7 +163,7 @@ step = 0.01
 
 [node name="SFXVolume" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
-split_offset = -105
+split_offset = -90
 
 [node name="Label" type="Label" parent="MenuButtons/SFXVolume"]
 layout_mode = 2
@@ -183,11 +183,11 @@ text = "Return"
 
 [connection signal="button_down" from="MenuButtons/reset" to="." method="_on_ResetButton_pressed"]
 [connection signal="item_selected" from="MenuButtons/Resolution/OptionButton" to="." method="_on_OptionResolution_selected"]
-[connection signal="value_changed" from="MenuButtons/3DScaling/HSlider" to="." method="_on_Option3DScaling_value_changed"]
-[connection signal="value_changed" from="MenuButtons/MouseSensitivity/HSlider" to="." method="_on_MouseSensitivity_value_changed"]
 [connection signal="toggled" from="MenuButtons/FullScreen/CheckButton" to="." method="_on_FullSCreen_checkbutton_toggle"]
+[connection signal="value_changed" from="MenuButtons/3DScaling/HSlider" to="." method="_on_Option3DScaling_value_changed"]
 [connection signal="toggled" from="MenuButtons/VSYNC/CheckButton" to="." method="_on_VSYNC_checkbutton_toggle"]
 [connection signal="toggled" from="MenuButtons/SpecialVisualEffect/CheckButton" to="." method="_on_SpecialVisualEffct_toggle"]
+[connection signal="value_changed" from="MenuButtons/MouseSensitivity/HSlider" to="." method="_on_MouseSensitivity_value_changed"]
 [connection signal="value_changed" from="MenuButtons/MasterVolume/HSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="value_changed" from="MenuButtons/BackgroundMusicVolume/HSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="MenuButtons/SFXVolume/HSlider" to="." method="_on_SFXSlider_value_changed"]
