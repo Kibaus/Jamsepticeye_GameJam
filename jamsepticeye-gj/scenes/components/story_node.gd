@@ -40,6 +40,7 @@ func play_ending():
 	_display_story_beat(end_text,30)
 
 func _on_death_message_end():
+	AudioManager.play_background_music("ambient_safe_kinda")
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 
