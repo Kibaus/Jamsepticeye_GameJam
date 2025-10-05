@@ -124,4 +124,11 @@ func _on_ResetButton_pressed():
 	is_special_visual_effect_on = true
 	special_visual_effect_checkbutton.button_pressed = true
 	
+	#Reset resolution
+	DisplayServer.window_set_size(resolutions[1])
+	resolution_option_button.selected = 1
+	
+	#Reset full screen
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	full_screen_toggle.button_pressed = DisplayServer.window_get_mode()
 	
