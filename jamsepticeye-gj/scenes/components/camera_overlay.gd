@@ -7,13 +7,12 @@ var show_linear_depth_tween: Tween = null
 var is_linear_depth = false
 
 func _ready() -> void:
-	_linear_depth_tween(0,0)
+	is_linear_depth = false
+	pass
 
 func _process(_delta: float) -> void:
 	if(Input.is_action_just_pressed("ghost_switch")):
-		var active = Core.current_player.currently_active
-		
-		if(active):
+		if(is_linear_depth):
 			_linear_depth_tween(0)
 			is_linear_depth = false
 		else:
