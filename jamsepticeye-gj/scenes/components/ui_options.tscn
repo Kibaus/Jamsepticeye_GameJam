@@ -16,10 +16,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
+offset_left = -35.5
 offset_top = 24.0
-offset_right = 20.0
-offset_bottom = 55.000015
+offset_right = 35.5
+offset_bottom = 47.0
 grow_horizontal = 2
 text = "OPTIONS"
 
@@ -29,12 +29,17 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -336.0
+offset_left = -320.0
 offset_right = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
+
+[node name="reset" type="Button" parent="MenuButtons"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset to default"
 
 [node name="Resolution" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
@@ -66,6 +71,22 @@ size_flags_horizontal = 3
 max_value = 2.0
 step = 0.1
 
+[node name="MouseSensitivity" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse Sensitivity"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="MenuButtons/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 150.0
+step = 10.0
+
 [node name="FullScreen" type="HSplitContainer" parent="MenuButtons"]
 layout_mode = 2
 split_offset = -105
@@ -91,6 +112,20 @@ text = "VSYNC"
 horizontal_alignment = 1
 
 [node name="CheckButton" type="CheckButton" parent="MenuButtons/VSYNC"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="SpecialVisualEffect" type="HSplitContainer" parent="MenuButtons"]
+layout_mode = 2
+split_offset = -105
+
+[node name="Label" type="Label" parent="MenuButtons/SpecialVisualEffect"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Special Visual Effect"
+horizontal_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="MenuButtons/SpecialVisualEffect"]
 layout_mode = 2
 size_flags_horizontal = 6
 
@@ -146,10 +181,13 @@ step = 0.01
 layout_mode = 2
 text = "Return"
 
+[connection signal="button_down" from="MenuButtons/reset" to="." method="_on_ResetButton_pressed"]
 [connection signal="item_selected" from="MenuButtons/Resolution/OptionButton" to="." method="_on_OptionResolution_selected"]
 [connection signal="value_changed" from="MenuButtons/3DScaling/HSlider" to="." method="_on_Option3DScaling_value_changed"]
+[connection signal="value_changed" from="MenuButtons/MouseSensitivity/HSlider" to="." method="_on_MouseSensitivity_value_changed"]
 [connection signal="toggled" from="MenuButtons/FullScreen/CheckButton" to="." method="_on_FullSCreen_checkbutton_toggle"]
 [connection signal="toggled" from="MenuButtons/VSYNC/CheckButton" to="." method="_on_VSYNC_checkbutton_toggle"]
+[connection signal="toggled" from="MenuButtons/SpecialVisualEffect/CheckButton" to="." method="_on_SpecialVisualEffct_toggle"]
 [connection signal="value_changed" from="MenuButtons/MasterVolume/HSlider" to="." method="_on_MasterSlider_value_changed"]
 [connection signal="value_changed" from="MenuButtons/BackgroundMusicVolume/HSlider" to="." method="_on_MusicSlider_value_changed"]
 [connection signal="value_changed" from="MenuButtons/SFXVolume/HSlider" to="." method="_on_SFXSlider_value_changed"]

@@ -23,7 +23,8 @@ func _linear_depth_tween(p_target_value: float, duration: float = 0.3) -> void:
 		canvas_overlay._hide_ripple_effect()
 		show_linear_depth_tween.kill()
 	
-	canvas_overlay._show_ripple_effect()
+	if(UIManager.ui_option.is_special_visual_effect_on):
+		canvas_overlay._show_ripple_effect()
 	var mat = linear_depth_effect.get_active_material(0)
 	
 	show_linear_depth_tween = create_tween()

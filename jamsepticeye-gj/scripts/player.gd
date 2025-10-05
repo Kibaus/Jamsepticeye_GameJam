@@ -12,7 +12,7 @@ extends CharacterBody3D
 var target_velocity = Vector3.ZERO
 
 #mouse input
-@export_range(1, 100, 1) var mouse_sensitivity: int = 50
+#@export_range(1, 100, 1) var mouse_sensitivity: int = 50
 @export var max_pitch : float = 89
 @export var min_pitch : float = -89
 
@@ -110,7 +110,8 @@ func aim_look(event: InputEventMouseMotion)-> void:
 	var motion: Vector2 = event.xformed_by(viewport_transform).relative
 	var degrees_per_unit: float = 0.001
 	
-	motion *= mouse_sensitivity
+	#motion *= mouse_sensitivity
+	motion *= UIManager.ui_option.mouse_sensitivity
 	motion *= degrees_per_unit
 	
 	add_yaw(motion.x)

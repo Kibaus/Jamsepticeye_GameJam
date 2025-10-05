@@ -61,12 +61,10 @@ environment = SubResource("Environment_acvb7")
 
 [node name="CameraOverlay" type="Node3D" parent="CamPivot/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09656106)
-visible = false
 script = ExtResource("3_acvb7")
 
 [node name="LinearDepthEffect" type="MeshInstance3D" parent="CamPivot/Camera3D/CameraOverlay"]
 transform = Transform3D(1, 0, 0, 0, 0.9999973, -0.0023038324, 0, 0.0023038324, 0.9999973, 0, 0, 0)
-visible = false
 cast_shadow = 0
 mesh = SubResource("QuadMesh_h3cwf")
 skeleton = NodePath("../..")
